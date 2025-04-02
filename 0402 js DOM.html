@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 돔</title>
+    <style>
+        .팀장 {
+            color: red;
+        }
+
+        .민서네팀 {
+            background-color: skyblue;
+        }
+
+        .은혁이네팀 {
+            background-color: salmon;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="민서네팀">
+        <h1>민서네팀</h1>
+        <ul>
+            <li class="팀장" id="민서네팀장">노상방뇨</li>
+            <li>만득아달려</li>
+            <li>요아정</li>
+            <li>별비</li>
+            <li>허혁</li>
+        </ul>
+    </div>
+
+    <div class="은혁이네팀">
+        <h1>은혁이네팀</h1>
+        <ul>
+            <li class="팀장" id="은혁이네팀장">개구리</li>
+            <li>왕사마귀</li>
+            <li>메 건</li>
+            <li>wvy</li>
+            <li>부산홍민경</li>
+        </ul>
+    </div>
+
+
+    <script>
+        let 민서네팀선택
+        민서네팀선택 = document.querySelector(".민서네팀")// 1. 조질놈을 선택한다
+        민서네팀선택.style.color = "blue" // 2. 조진다
+        민서네팀선택.style.width = "300px" // 2. 조진다
+        민서네팀선택.style.height = "300px" // 2. 조진다
+
+        console.log(민서네팀선택)
+
+        let 은혁이네팀선택
+        은혁이네팀선택 = document.querySelector(".은혁이네팀")// 1. 조질놈을 선택한다
+        은혁이네팀선택.style.color = "white"
+
+        console.log(은혁이네팀선택)
+
+        let 민서네팀장
+        민서네팀장 = document.querySelector(" #민서네팀장 ")
+        민서네팀장.style.backgroundColor = "green"
+
+        console.log(민서네팀장)
+
+        let 은혁이네팀장
+        은혁이네팀장 = document.querySelector(" #은혁이네팀장 ")
+        은혁이네팀장.style.backgroundColor = "blue"
+
+        console.log(은혁이네팀장)
+
+
+    </script>
+
+
+
+</body>
+
+</html>
