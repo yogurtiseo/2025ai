@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 class="팀1" style="width: 500px; height: 200px;">나는 민트랍니다 안티가 많아요ㅜ</h2>
+    <h2 class="팀2" style="width: 500px; height: 200px;">나는 블루</h2>
+
+    <script>
+        let 팀1
+        let 팀2
+        팀1 = document.querySelector(".팀1")
+        팀2 = document.querySelector(".팀2")
+
+        팀1.style.backgroundColor = "aquamarine"
+        팀2.style.backgroundColor = "skyblue"
+
+        팀1.addEventListener("mouseup", function () {
+            팀1.style.backgroundColor = "aquamarine"
+
+        })
+        팀1.addEventListener("mousedown", function () {
+            팀1.style.backgroundColor = "pink"
+        })
+        팀2.addEventListener("mouseup", function () {
+            팀2.style.backgroundColor = "skyblue"
+
+        })
+        팀2.addEventListener("mousedown", function () {
+            팀2.style.backgroundColor = "yellow"
+        })
+    </script>
+
+</body>
+
+</html>
