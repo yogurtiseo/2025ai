@@ -1,0 +1,39 @@
+h1 {
+    font-family: "Black Han Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border: 5px solid black;
+    text-align: center;
+    margin: 40px;
+    width: 60%;
+    font-size: 70px;
+    text-shadow: 2px 2px 0px pink;
+}
+
+
+#위 {
+    font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+
+}
+
+#아래 {
+    font-style: italic;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+h3 {
+    font-weight: 800;
+}
+
+p {
+    text-decoration: underline;
+    letter-spacing: 5px;
+}
+
+h2 {
+    font-size: 15px;
+}
