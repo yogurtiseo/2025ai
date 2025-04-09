@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        let hp = 650
+        console.log("hp", hp)
+        hp = hp + 100
+        console.log("hp", hp)
+
+        let 공격력 = 80
+        console.log(공격력)
+        공격력 = 공격력 + 50
+        console.log(공격력)
+
+        let 이동속도 = 330
+        console.log("이속", 이동속도)
+        이동속도 = 이동속도 * 1.2 // 이속 20% 증가 (120%)
+        console.log("이속", 이동속도)
+
+        let kill = 0
+        console.log("킬", kill)
+        kill = kill + 1 // 1킬 한 경우
+        console.log("킬", kill)
+
+        let death = 0
+        console.log("데스", death)
+        death += 1 //death = death + 1
+        console.log("데스", death)
+
+        let assist = 0
+        console.log("어시", assist)
+        assist++ //assist = assist + 1
+        console.log("어시", assist)
+
+        // for: ~~ 하는 동안, 반복을 한다.
+        for (let i = 0; i < 100; i = i + 1) {
+            게임불러오기(i)
+        }
+
+        function 게임불러오기(게임번호) {
+            console.log(`${게임번호}번 게임 불러오기`)
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
