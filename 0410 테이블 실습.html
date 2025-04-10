@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td {
+            border: 1px dotted black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <table style="border: 1px solid black;">
+        <caption>(caption태그 자리) table 태그 내부에 tr태그 넣고, tr 태그 내부에 td 태그 작성</caption>
+        <colgroup>
+            <col style="background-color: pink;">
+            <col style="background-color: aqua;">
+            <col style="background-color:chartreuse;">
+            <col>
+        </colgroup>
+        <tr>
+            <td colspan="4">
+                (colspan=4)thead, tbody, tfoot 사용할 것
+            </td>
+        </tr>
+        <tr>
+            <td>border-collapse 적용하기</td>
+            <td>caption으로 표에 대한 설명 넣기</td>
+            <td>colgroup 이용해 스타일 적용하기</td>
+            <td>colgroup 이용하여 각 칸의 width, 배경색 조절</td>
+        </tr>
+        <tr>
+            <td colspan="2">(colspan=2)</td>
+            <td rowspan="2">(rowspan=2)</td>
+            <td>글씨 가운데 적용</td>
+
+        </tr>
+        <tr>
+            <td>표 내부는 점선으로 테두리 적용</td>
+            <td>표 외부는 실선으로 테두리 적용</td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <th>td 대신 th태그 사용한 자리</th>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+    </table>
+
+</body>
+
+</html>
