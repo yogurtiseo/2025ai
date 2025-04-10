@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            /* border: 테두리 collapse: 붕괴 */
+
+            border-spacing: 20px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1px">
+        <caption>표1-1</caption>
+
+        <colgroup>
+            <col style="width: 100px;">
+            <col style="background-color:aquamarine">
+            <col style="width: 150px; background-color:blueviolet">
+            <col style="background-color: cadetblue;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>1칸</th>
+                <td>2칸</td>
+                <td>3칸</td>
+                <td>4칸</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1칸</td>
+                <td>2칸</td>
+                <td colspan="2">3칸</td>
+            </tr>
+
+            <tr>
+                <td>1칸</td>
+                <td rowspan="2">2칸</td>
+                <td>3칸</td>
+                <td>4칸</td>
+            </tr>
+
+            <tr>
+                <td>1칸</td>
+                <td>2칸</td>
+                <td>3칸</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td>1칸</td>
+                <td>2칸</td>
+                <td>3칸</td>
+                <td>4칸</td>
+            </tr>
+        </tfoot>
+
+    </table>
+</body>
+
+</html>
