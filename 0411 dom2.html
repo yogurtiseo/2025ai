@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 배우는 날2</title>
+</head>
+
+<body>
+
+    <h1>밍구리</h1>
+    <img width="400px" id="빵주"
+        src="https://i.namu.wiki/i/hUYnwz8XBGBzhtKKZC4XcO5f6CN3upeo5RSp5tek0oq1xZhEtU8i1i74TWOWyf4CjO3ZaeeXB_CRlsAGtqbokg.webp"
+        alt="">
+
+    <button>버튼1</button>
+    <button>버튼2</button>
+    <button>버튼3</button>
+
+    <script>
+        // 1. 내가 원하는 놈을 선택한다
+        let 사진 = document.querySelector("#빵주")
+        console.log(사진)
+
+        // 2. 조진다
+        // 사진.setAttributeNS("   ,   ") // 태그의 속성을 바꾸는 기능
+        사진.setAttribute("src", "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2021/12/31/GKRZjZYBpPhE637765486789400308.jpg")
+
+
+
+        // 이벤트 거는 법
+        // 1. 내가 원하는 놈을 선택한다
+        // 2. 조진다(이벤트를 걸어준다)
+        사진.addEventListener("click", function () {
+            console.log("존나 예쁘네 슈발")
+            alert("빵")
+        })
+    </script>
+</body>
+
+</html>

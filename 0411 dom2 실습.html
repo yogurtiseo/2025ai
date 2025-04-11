@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0411 js 실습</title>
+
+
+</head>
+
+<body>
+
+    <h1>버튼 클릭에 따른 이미지 슬라이드</h1>
+
+    <button id="버튼1" style="width: 100px;">1</button>
+    <button id="버튼2" style="width: 100px;">2</button>
+    <button id="버튼3" style="width: 100px;">3</button>
+    <br>
+    <br>
+    <img width="400px" id="빵주"
+        src="https://i.namu.wiki/i/hUYnwz8XBGBzhtKKZC4XcO5f6CN3upeo5RSp5tek0oq1xZhEtU8i1i74TWOWyf4CjO3ZaeeXB_CRlsAGtqbokg.webp"
+        alt="">
+    <script>
+        let 사진 = document.querySelector("#빵주")
+
+        let 버튼1 = document.querySelector("#버튼1")
+        let 버튼2 = document.querySelector("#버튼2")
+        let 버튼3 = document.querySelector("#버튼3")
+
+        버튼1.addEventListener("click", function () {
+            사진.setAttribute("src", "https://img3.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202112/31/SpoHankook/20211231010418198losj.jpg")
+        })
+
+        버튼2.addEventListener("click", function () {
+            사진.setAttribute("src", "https://i.namu.wiki/i/hUYnwz8XBGBzhtKKZC4XcO5f6CN3upeo5RSp5tek0oq1xZhEtU8i1i74TWOWyf4CjO3ZaeeXB_CRlsAGtqbokg.webp")
+        })
+
+        버튼3.addEventListener("click", function () {
+            사진.setAttribute("src", "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2021/12/31/GKRZjZYBpPhE637765486789400308.jpg")
+        })
+
+    </script>
+</body>
+
+</html>
