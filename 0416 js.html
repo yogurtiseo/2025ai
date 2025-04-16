@@ -10,13 +10,39 @@
 <body>
     <h1>IQ 테스트</h1>
     <form action="">
-        <label>이름 <input type="text"></label><br><br>
-        <label for="">나이<input type="text"></label><br><br>
-        <label for="">성별<input type="text"></label><br><br>
-        <button>제출</button>
+        <label>이름 <input type="text" id="name"></label><br><br>
+        <label for="">나이<input type="text" id="age"></label><br><br>
+        <label for="">성별<input type="text" id="gender"></label><br><br>
+        <button id="buttonn" type="button">제출</button>
+
+
 
     </form>
 
+    <script>
+        let 버튼 = document.querySelector("#buttonn")
+
+        버튼.addEventListener("click", function () {
+            const name = document.querySelector("#name")
+            let 이름 = name.value
+
+            const age = document.querySelector("#age")
+            let 나이 = age.value
+
+            const gender = document.querySelector("#gender")
+            let 성별 = gender.value
+
+            console.log(name)
+            console.log(age)
+            console.log(gender)
+
+            confirm(`${이름}님, ${나이}살에 ${성별} 맞습니까?`)
+        }) == $0
+
+
+
+
+    </script>
 
 </body>
 
