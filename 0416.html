@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="https://www.choicenews.co.kr/news/photo/202502/143356_105034_639.jpg" alt="">
+    <img src="https://www.choicenews.co.kr/news/photo/202502/143356_105034_639.jpg" alt="">
+    <img src="https://www.choicenews.co.kr/news/photo/202502/143356_105034_639.jpg" alt="">
+    <img src="https://www.choicenews.co.kr/news/photo/202502/143356_105034_639.jpg" alt="">
+
+    <br>
+    <input type="text" placeholder="입력하세요">
+    <button>버튼</button>
+    <script>
+        let 카리나
+        카리나 = document.querySelector("img")
+        카리나.setAttribute("src", "https://namu.wiki/w/%EC%B9%B4%EB%A6%AC%EB%82%98")
+        카리나.setAttribute("width", "300px")
+        let 가져온것
+        가져온것 = 카리나.getAttribute("src")
+        console.log(가져온것)
+
+        let 입력창
+        입력창 = document.querySelector("input")
+        let 버튼
+        버튼 = document.querySelector("button")
+
+        버튼.addEventListener("click", function () {
+            console.log(입력창.value)
+        })
+    </script>
+</body>
+
+</html>
