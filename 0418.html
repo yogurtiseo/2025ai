@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성과 삭제</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">박스1</div>
+    <div class="box2">박스2</div>
+
+    <script>
+        let 새로운태그
+        새로운태그 = document.createElement("div")
+        console.log(새로운태그)
+
+        새로운태그.classList.add("box2")
+        새로운태그.textContent = "새로 만든 자식. div태그"
+
+
+        let 부모 = document.querySelector("body") // 부모 지정
+        부모.appendChild(새로운태그) // 부모에서 appendChild로 자식 추가
+
+        부모.removeChild(새로운태그) // 부모에서 자식 삭제
+
+        let 부모2 = document.querySelector(".box1")
+        부모2.appendChild(새로운태그)
+    </script>
+
+
+</body>
+
+</html>
