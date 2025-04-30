@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_진은혁</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Jua&family=Orbit&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .box1 {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+        }
+
+        .box2 {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+        }
+
+        .button {
+            text-align: center;
+            width: 150px;
+            height: 50px;
+            background-color: rgb(94, 214, 94);
+            color: white;
+            font-size: 25px;
+            border: 0 solid;
+            border-radius: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+
+        h1 {
+            font-family: "Jua", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: rgb(108, 230, 108);
+        }
+
+        input {
+            border-bottom: 0.1 solid rgba(0, 0, 0, 0.16);
+            border-top: 0 solid black;
+            border-right: 0 solid rgba(0, 0, 0, 0.046);
+            border-left: 0 solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form>
+        <div class="box1">
+            <fieldset style="border: 1px solid rgba(0, 0, 0, 0.21);">
+
+                <h1>| 자신의 프로필을 설정해주세요</h1>
+
+                <p style="color: rgba(0, 0, 0, 0.377); font-size:smaller;">각각의 항목에 정보를 해주세요</p>
+                <hr>
+                <h4>성명</h4>
+                <label><input type="text" placeholder="성명 입력"></label>
+                <h4>주소</h4>
+                <label><input type="text" placeholder="주소 입력"></label>
+                <h4>연락처</h4>
+                <label><input type="text" placeholder="연락처 입력"></label>
+                <h4>생년월일</h4>
+                <label><input type="month"></label>
+                <label><input type="text">일</label>
+                <h4>성별</h4>
+                <label><input type="radio" name="성별" value="man"> 남 </label>
+                <label><input type="radio" name="성별" value="woman"> 여 </label>
+                <h4>이메일</h4>
+                <label><input type="email" placeholder="이메일 입력"></label>
+                <br><br>
+            </fieldset>
+        </div>
+
+        <div class="box2">
+            <fieldset style="border: 1px solid rgba(0, 0, 0, 0.21);">
+                <h1>| 자신을 소개해 주세요</h1>
+
+                <p style="color: rgba(0, 0, 0, 0.377); font-size:smaller;">아래의 물음에 답하세요</p>
+                <hr>
+
+                <label><input type="radio" name="명언" value="auddjs1"> 어렵게 생각하지 말고 끝까지 하면 된다. 희망을 가지고 간절하게 하면 된다</label>
+                <br>
+                <br>
+                <label><input type="radio" name="명언" value="auddjs2"> 신념을 가지면 어떤 어려움에도 흔들리지 않는다.</label>
+                <br>
+                <br>
+                <label><input type="radio" name="명언" value="auddjs3"> "시계처럼 살아라"- 이는 시계처럼 꾸준히 가라는 것이다.시계처럼 시간도
+                    지켜라.</label>
+                <br>
+                <br>
+                <label><input type="radio" name="명언" value="auddjs4"> 인생도 건너뛰기가 없고 순간 나는 비약도 없다.</label>
+                <br>
+                <br>
+                <h4>위 문구를 선택한 이유를 쓰세요</h4>
+                <textarea name="이유"></textarea>
+                <h4>자신의 진로 분야를 선택하세요</h4>
+                <label> <input type="checkbox" name="진로" value="front">프론트엔드</label>
+                <label> <input type="checkbox" name="진로" value="sec"> 보안 </label>
+                <label> <input type="checkbox" name="진로" value="back"> 백엔드 </label>
+                <label> <input type="checkbox" name="진로" value="ai"> 인공지능 </label>
+                <label> <input type="checkbox" name="진로" value="hacker"> 해커 </label>
+                <label> <input type="checkbox" name="진로" value="etc"> 기타 </label>
+                <h4>개발자가 되기 위한 자신의 공부 우선 순위</h4>
+                <label>1. <input type="text" name="1"></label>
+                <label>2. <input type="text" name="2"></label>
+                <label>3. <input type="text" name="3"></label>
+
+            </fieldset>
+        </div>
+
+        <br>
+        <div class="buttons">
+            <button type="submit" class="button">제출</button>
+            <button type="reset" class="button">초기화</button>
+        </div>
+
+
+    </form>
+
+</body>
+
+</html>
