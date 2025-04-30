@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>BMI 테스트</h1>
+    <h2>
+        몸무게 / (키*키)
+        <br>
+        키는 m 단위
+        <br>
+        ex)100/(1.8*1.8)
+    </h2>
+    <form>
+        <label> 키 <input type="text" id="height"></label>
+        <br>
+        <br>
+        <label> 체중 <input type="text" id="weight"></label>
+        <br>
+        <br>
+        <label><input type="button" id="button" value="계산"></label>
+
+    </form>
+
+    <h2>20 이상 24.9이하의 경우 정상으로 간주</h2>
+    <hr>
+    <h1 id="bmi">BMI 수치:</h1>
+    <h1 id="ox"></h1>
+
+    <script>
+        const 버튼 = document.querySelector("#button")
+        버튼.addEventListener("click", function (event) {
+            const 키선택 = document.querySelector("#height")
+            let 키 = 키선택.value / 100
+
+            const 체중선택 = document.querySelector("#weight")
+            let 체중 = 체중선택.value
+
+            const bmi선택 = document.querySelector("#bmi")
+            let bmi = 체중 / (키 * 키)
+            document.querySelector("#bmi").textContent = "BMI 수치 " + bmi
+
+            if (20 <= bmi && bmi <= 24.9) {
+                document.querySelector("#ox").textContent = "정상 범위"
+            }
+            else {
+                document.querySelector("#ox").textContent = "비정상 범위"
+            }
+        })
+
+    </script>
+</body>
+
+</html>
