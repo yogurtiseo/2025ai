@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+
+    <style>
+        button {
+            width: 300px;
+            height: 50px;
+            font-size: 20pt;
+        }
+
+        #bbox div {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            text-align: center;
+
+        }
+
+        #guide {
+            width: 900px;
+            border: 1px dashed black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>마우스로 술래잡기</h1>
+    <button id="start">술래잡기 시작</button>
+    <button id="end">술래잡기 정지</button>
+    <br>
+    <br>
+    <div id="bbox" style="display: flex;">
+        <div id="box1">
+            <h1>박스1</h1>
+        </div>
+        <div id="box2">
+            <h1>박스2</h1>
+        </div>
+        <div id="box3">
+            <h1>박스3</h1>
+        </div>
+    </div>
+    <br>
+    <div id="guide">
+        <h3>시작을 누르면 이미지가 나타나고, 정지를 누르면 사라져야 한다.</h3>
+        <h3>시작하면 첫번째 박스에서 시작한다.</h3>
+        <h3>시작한 상태에서 다시 시작을 눌러도 아무 에러 없어야 함</h3>
+        <h3>중지한 상태에서 다시 중지를 눌러도 아무 에러가 없어야 함</h3>
+        <h3>이미지가 어디에 있든 작동에 이상이 없어야 함</h3>
+    </div>
+
+    <script>
+
+        const 시작 = document.querySelector("#start")
+        const 중지 = document.querySelector("#end")
+        let start = 0
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const box1 = document.querySelector("#box1")
+            const box2 = document.querySelector("#box2")
+            const box3 = document.querySelector("#box3")
+        })
+
+        시작.addEventListener("click", function (event) {
+            if (start == 0) {
+                start = 1
+
+                const img = document.createElement("img")
+                img.setAttribute("src", "https://file.sportsseoul.com/news/legacy/2021/12/13/news/2021121301000537800037851.jpg")
+                img.setAttribute("width", "200")
+
+                box1.appendChild(img)
+                par = 1
+
+                img.addEventListener("mouseover", function (event) {
+                    console.log("현재 부모:", par)
+
+                    if (par == 1) {
+                        par = 2
+                        box2.appendChild(img)
+                    }
+                    else if (par == 2) {
+                        par = 3
+                        box3.appendChild(img)
+                    }
+                    else if (par == 3) {
+                        par = 1
+                        box1.appendChild(img)
+                    }
+                    console.log("이동한 곳:", par)
+
+                })
+            }
+        })
+        중지.addEventListener("click", function (event) {
+            if (start == 1) {
+                start = 0
+
+                const img = document.querySelector("img")
+
+                if (par == 1) {
+                    box1.removeChild(img)
+                }
+                else if (par == 2) {
+                    box2.removeChild(img)
+                }
+                else if (par == 3) {
+                    box3.removeChild(img)
+                }
+            }
+        })
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
