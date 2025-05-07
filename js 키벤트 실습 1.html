@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드 이벤트</title>
+
+    <style>
+        #box {
+            width: 700px;
+            height: 400px;
+            border: 2px black solid;
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>가고 싶은 해외여행지(a,s,d,f)</h1>
+
+    <div id="box">
+        <img src="https://pimg.mk.co.kr/news/cms/202504/14/news-p.v1.20250414.1d27f9c1d8d3489585496814b4da1793_P1.jpg"
+            width="400px">
+        <h1>카리나</h1>
+    </div>
+
+    <script>
+
+        let img = document.querySelector("#box img")
+        let h1 = document.querySelector("#box h1")
+        document.addEventListener("keyup", function (event) {
+            if (event.key == "a") {
+                img.setAttribute("src", "https://pimg.mk.co.kr/news/cms/202504/14/news-p.v1.20250414.1d27f9c1d8d3489585496814b4da1793_P1.jpg")
+                h1.textContent = "카리나"
+            }
+            if (event.key == "s") {
+                img.setAttribute("src", "https://image.cine21.com/resize/cine21/movie/2024/1006/10_31_24__6701e86c818b0[W578-].jpg")
+                h1.textContent = "김민주"
+            }
+
+            if (event.key == "d") {
+                img.setAttribute("src", "https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Teemo_0.jpg")
+                h1.textContent = "티모"
+            }
+
+            if (event.key == "f") {
+                img.setAttribute("src", "https://mblogthumb-phinf.pstatic.net/MjAyMTAyMTZfNTIg/MDAxNjEzNDE5Mzg5MDAx.RlwK0Mou4qANw_ojX0XZWLYP3-tDRbfWxsMuEZH_xZsg.pQINZ_dXK_Ax30k8cEi4KgrxbjY3KJVbQoj8Ch6Jdi8g.JPEG.kumagom94/-I2o1gtk.jpg?type=w800")
+                h1.textContent = "버섯"
+            }
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
