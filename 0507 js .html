@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드 이벤트</title>
+</head>
+
+<body>
+    <h1>키보드 이벤트</h1>
+
+    <script>
+        
+
+        // q를 누른 경우
+        document.addEventListener("keypress", function(event){
+            if(event.key == 'q') {
+                console.log("q 발동")
+            }
+
+        })
+        // w를 누른 경우
+        document.addEventListener("keypress", function(event){
+            if(event.key == 'w') {
+                console.log("w 발동")
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>
