@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드 이벤트</title>
+    <style>
+        #box {
+            width: 700px;
+            height: 400px;
+            border: 2px black solid;
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>키보드 ← → 키로 슬라이드 전환</h1>
+
+    <div id="box">
+        <img src="https://mblogthumb-phinf.pstatic.net/MjAyMTAyMTZfNTIg/MDAxNjEzNDE5Mzg5MDAx.RlwK0Mou4qANw_ojX0XZWLYP3-tDRbfWxsMuEZH_xZsg.pQINZ_dXK_Ax30k8cEi4KgrxbjY3KJVbQoj8Ch6Jdi8g.JPEG.kumagom94/-I2o1gtk.jpg?type=w800"
+            width="400px">
+        <h1>버섯</h1>
+    </div>
+
+    <script>
+        let 위치 = 1;
+        let img = document.querySelector("#box img");
+        let h1 = document.querySelector("#box h1");
+
+        document.addEventListener("keyup", function (event) {
+            if (event.key == "ArrowLeft") {
+                if (위치 == 1) {
+                    위치 = 4
+                    img.setAttribute("src", "https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Teemo_0.jpg");
+                    h1.textContent = "티모";
+                }
+                else if (위치 == 2) {
+                    위치 = 1
+                    img.setAttribute("src", "https://mblogthumb-phinf.pstatic.net/MjAyMTAyMTZfNTIg/MDAxNjEzNDE5Mzg5MDAx.RlwK0Mou4qANw_ojX0XZWLYP3-tDRbfWxsMuEZH_xZsg.pQINZ_dXK_Ax30k8cEi4KgrxbjY3KJVbQoj8Ch6Jdi8g.JPEG.kumagom94/-I2o1gtk.jpg?type=w800");
+                    h1.textContent = "버섯";
+                }
+                else if (위치 == 3) {
+                    위치 = 2
+                    img.setAttribute("src", "https://mblogthumb-phinf.pstatic.net/MjAxODExMDJfMzIg/MDAxNTQxMTQ0Njc1NTMx.ZjljtwUpRb8DVVssSRiJEuKfUb5aeqti9-TYgNwDeREg.Uyf2ql8ZwY6y7wcGm2SVF_tlUoetO04Y-KmC6887kw4g.PNG.yun8943/0.png?type=w800");
+                    h1.textContent = "멋쟁이 티모";
+                }
+                else if (위치 == 4) {
+                    위치 = 3
+                    img.setAttribute("src", "https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Teemo_18.jpg");
+                    h1.textContent = "꿀벌티모";
+                }
+            }
+
+            else if (event.key == "ArrowRight") {
+                if (위치 == 1) {
+                    위치 = 2
+                    img.setAttribute("src", "https://mblogthumb-phinf.pstatic.net/MjAxODExMDJfMzIg/MDAxNTQxMTQ0Njc1NTMx.ZjljtwUpRb8DVVssSRiJEuKfUb5aeqti9-TYgNwDeREg.Uyf2ql8ZwY6y7wcGm2SVF_tlUoetO04Y-KmC6887kw4g.PNG.yun8943/0.png?type=w800");
+                    h1.textContent = "멋쟁이 티모";
+                }
+                else if (위치 == 2) {
+                    위치 = 3
+                    img.setAttribute("src", "https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Teemo_18.jpg");
+                    h1.textContent = "꿀벌티모";
+                }
+                else if (위치 == 3) {
+                    위치 = 4
+                    img.setAttribute("src", "https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Teemo_0.jpg");
+                    h1.textContent = "티모";
+                }
+                else if (위치 == 4) {
+                    위치 = 1
+                    img.setAttribute("src", "https://mblogthumb-phinf.pstatic.net/MjAyMTAyMTZfNTIg/MDAxNjEzNDE5Mzg5MDAx.RlwK0Mou4qANw_ojX0XZWLYP3-tDRbfWxsMuEZH_xZsg.pQINZ_dXK_Ax30k8cEi4KgrxbjY3KJVbQoj8Ch6Jdi8g.JPEG.kumagom94/-I2o1gtk.jpg?type=w800");
+                    h1.textContent = "버섯";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
