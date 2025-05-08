@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0508 박스모델</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(184, 223, 255);
+            border: 3px solid #000;
+        }
+
+        ul {
+            clear: both;
+
+        }
+
+        li {
+            width: 100px;
+            height: 50px;
+            background-color: tomato;
+            float: left;
+            text-align: center;
+            margin: 10px;
+            border-radius: 20px;
+            list-style: none;
+            color: #fff;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box" style="float:left">박스1</div>
+        <div class="box" style="float:left">박스2</div>
+        <div class="box" style="float:right">박스3</div>
+    </div>
+
+    <ul>
+        <li>로그인</li>
+        <li>마이페이지</li>
+        <li>장바구니</li>
+    </ul>
+
+
+</body>
+
+</html>
