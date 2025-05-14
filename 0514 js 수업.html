@@ -51,10 +51,20 @@
             학교: "동대부고",
             집: "서울",
             발로란트티어: "아이언3",
-            취미: "코딩"
+            취미: "코딩",
+            뻘짓: function () {
+                console.log("집에 안 가고 학교에 남기기")
+            }
         }
         console.log(박태준)
         console.log(박태준.발로란트티어)
+        console.log(박태준['취미'])
+        박태준.뻘짓()
+
+        for (let 키 in 박태준) {
+            console.log(키, 박태준[키])
+        }
+
     </script>
 </body>
 
