@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 배열</title>
+</head>
+
+<body>
+
+    <script>
+        let a = [1, 2, 3, 4]// 파이썬에서는 리스트, 자바스크립트에서는 배열
+        console.log(a)
+
+        let 우리반 = ['곽용준', '김민찬', '김준우', '박태준']
+        console.log(우리반)
+        console.log(우리반[0])
+        console.log(우리반[3])
+        console.log(우리반.length)
+
+        우리반.push('서동건')
+        console.log(우리반)
+        우리반.push('심민서')
+        console.log(우리반)
+        우리반.push('오정균')
+        console.log(우리반)
+
+        우리반.pop()
+        console.log(우리반)
+
+        let 우리반2 = ['오정균', '이시현', '전민재', '진은혁', '최명우', '김동언']
+        console.log(우리반2)
+
+        let 합본 = 우리반.concat(우리반2)
+        console.log(합본)
+
+
+        let 진은혁 = {
+            이름: "진은혁",
+            나이: 19,
+            학교: "강서고",
+            집: "서울"
+        }
+        console.log(진은혁)
+        console.log(진은혁.나이)
+        console.log(진은혁.집)
+        let 박태준 = {
+            이름: "박태준",
+            나이: 19,
+            학교: "동대부고",
+            집: "서울",
+            발로란트티어: "아이언3",
+            취미: "코딩"
+        }
+        console.log(박태준)
+        console.log(박태준.발로란트티어)
+    </script>
+</body>
+
+</html>
