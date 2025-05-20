@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            background-color: rgb(241, 241, 241);
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #FFF;
+            box-shadow: 0px 5px 5px rgb(230, 230, 230);
+            font-weight: 900;
+            font-size: 13pt;
+        }
+
+        .logo {
+            padding: 20px;
+            color: mediumspringgreen;
+        }
+
+        .menu {
+            display: flex;
+        }
+
+        .menu li a {
+            color: mediumspringgreen;
+            text-align: center;
+            display: block;
+            margin: 10px;
+            padding: 20px;
+        }
+
+        header a:hover {
+            background-color: rgb(214, 214, 214);
+            border-radius: 20px;
+            color: #000;
+        }
+
+        section {
+            display: flex;
+            margin: 20px;
+            justify-content: space-between;
+        }
+
+        section>* {
+            margin: 20px;
+        }
+
+        section>#left {
+            width: 15%;
+        }
+
+        #left>.side-menu>li {
+            height: 100px;
+            line-height: 50px;
+            font-size: 20px;
+        }
+
+        #left>.side-menu>li a {
+            display: block;
+            width: 100%;
+            padding-left: 10px;
+        }
+
+        #left>.side-menu>li:hover {
+            background-color: #999;
+            border-radius: 10px;
+        }
+
+        #main {
+            width: 50%;
+        }
+
+        #main>.content {
+            width: 100%;
+            padding: 30px;
+            background-color: #FFF;
+            margin-bottom: 30px;
+            box-shadow: 0px 5px 5px rgb(230, 230, 230);
+
+        }
+
+        #main>.title {
+            margin-bottom: 20px;
+        }
+
+        #main>.prov {
+            margin-bottom: 20px;
+        }
+
+        section>#right {
+            width: 20%;
+            text-align: center;
+        }
+
+        #right .guide {
+            text-align: left;
+            border-bottom: 1px solid #999;
+            margin-bottom: 20px;
+        }
+
+        #right .guide>* {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">로고</h1>
+        <ul class="menu">
+            <li><a href="#">게시판</a></li>
+            <li><a href="#">친구들</a></li>
+            <li><a href="#">피드</a></li>
+            <li><a href="#">즐겨찾기</a></li>
+        </ul>
+        <ul class="menu">
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">회원가입</a></li>
+        </ul>
+    </header>
+    <section>
+        <aside id="left">
+            <ul class="side-menu">
+                <li><a href="#">친구 찾기</a></li>
+                <li><a href="#">그룹</a></li>
+                <li><a href="#">저장됨</a></li>
+                <li><a href="#">페이지</a></li>
+                <li><a href="#">이벤트</a></li>
+                <li><a href="#">최신</a></li>
+                <li><a href="#">즐겨찾기</a></li>
+            </ul>
+        </aside>
+        <div id="main">
+            <div class="content">
+                <h2 class="title">오늘의 뉴스</h2>
+                <p class="prov">도파민 중독에 대해</p>
+            </div>
+            <div class="content">
+                <h2 class="title">오늘의 뉴스</h2>
+                <p class="prov">어떤 일을 하려면 어려움이 있다. 그래도 해야 된다.</p>
+            </div>
+        </div>
+        <aside id="right">
+            <div class="guide">
+                <h2 class="title">가이드</h2>
+                <p>상단 헤더와 중앙 콘텐츠에 그림자</p>
+                <p>상단과 좌측 메뉴는 마우스가 변하며, 클릭 가능</p>
+            </div>
+
+        </aside>
+    </section>
+</body>
+
+</html>
