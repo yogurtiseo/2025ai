@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: lightpink;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        input {
+            height: 50px;
+            border-radius: 10px;
+            width: 250px;
+            border: none;
+        }
+
+        .task {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #aaa;
+            height: 70px;
+            align-items: center;
+        }
+
+        .left {
+            flex: 1;
+            text-align: center;
+        }
+
+        .center {
+            flex: 8;
+        }
+
+        .right {
+            flex: 1;
+            text-align: center;
+        }
+
+        .favorite {
+            color: pink;
+            cursor: pointer;
+        }
+
+        .done {
+            color: greenyellow;
+            cursor: pointer;
+        }
+
+        .clear {
+            color: red;
+            cursor: pointer;
+        }
+
+        .ok {
+            color: #ccc;
+            text-decoration: line-through;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>todo</h1>
+        <input type="text">
+    </header>
+    <section>
+        <div class="task">
+            <div class="left">
+                <i class="material-icons favorite">favorite_border</i>
+            </div>
+            <div class="center">
+                중앙 할일
+            </div>
+            <div class="right ">
+                <i class="material-icons done">done</i>
+                <i class="material-icons clear">clear</i>
+            </div>
+        </div>
+        <div class="task">
+            <div class="left">
+                <i class="material-icons favorite">favorite_border</i>
+            </div>
+            <div class="center ok">
+                중앙 할일
+            </div>
+            <div class="right ">
+                <i class="material-icons done">done</i>
+                <i class="material-icons clear">clear</i>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
