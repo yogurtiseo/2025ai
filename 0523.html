@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 개념</title>
+</head>
+
+<body>
+
+    <h1>입력칸</h1>
+    <input type="text" style="width: 300px; height:50px">
+
+    <script>
+        function add(x, y) { // x, y: 매개 변수, 함수 안으로 집어 넣는 데이터.
+            console.log(`x : ${x}, y : ${y}, x+y = ${x + y}`)
+            return x + y // 밖으로 내보내는 데이터. console.log와 다름
+        }
+
+        let 출력값
+        출력값 = add(3, 5) // return값이 변수에 들어감
+        console.log("return 값", 출력값)
+
+        출력값 = add(10, 2) // return값이 변수에 들어감
+        console.log("return 값", 출력값)
+        add(10, 2)
+
+        let 화살표함수
+        화살표함수 = (x, y) => {
+            console.log("화살표함수 표출")
+            console.log(x, y)
+        }
+        화살표함수(10, 3)
+
+        const 인풋 = document.querySelector("input")
+        인풋.addEventListener("input", function () { // input: 입력이 될 때마다 발생하는 이벤트
+            console.log("input 이벤트 발생")
+        })
+    </script>
+
+</body>
+
+</html>

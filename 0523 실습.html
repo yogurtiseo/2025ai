@@ -1,0 +1,74 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타자게임 2개</title>
+</head>
+
+<body>
+    <h1>애국가</h1>
+    <p>타이핑을 하여 내용이 일치하면 ok 표시</p>
+    <p>ok 표시를 위한 태그는 span 사용 권장</p>
+
+    <hr>
+
+    <h2>input 이벤트와 조건문을 활용</h2>
+    <h3>값을 입력하면 맞는지 점검함</h3>
+    <label for="">동해물과 <input type="text" name="" id="song1"> <span id="ok1"></span></label>
+    <br><br>
+    <label for="">백두산이 <input type="text" name="" id="song2"> <span id="ok2"></span></label>
+
+    <h2>키보드 이벤트 활용</h2>
+    <h3>Enter를 누르면 확인함</h3>
+    <label for="">마르고 <input type="text" name="" id="song3"> <span id="ok3">ok</span></label>
+    <br><br>
+    <label for="">닳도록 <input type="text" name="" id="song4"> <span id="ok4"></span></label>
+
+    <script>
+        let 동해물과1 = document.querySelector("#song1")
+        let 동해물과2 = document.querySelector("#ok1")
+
+        let 백두산이1 = document.querySelector("#song2")
+        let 백두산이2 = document.querySelector("#ok2")
+
+        let 마르고1 = document.querySelector("#song3")
+        let 마르고2 = document.querySelector("#ok3")
+
+        let 닳도록1 = document.querySelector("#song4")
+        let 닳도록2 = document.querySelector("#ok4")
+
+        동해물과1.addEventListener("input", () => {
+            if (동해물과1.value == "동해물과")
+                동해물과2.innerHTML = "ok"
+            else
+                동해물과2.innerHTML = "x"
+        })
+        백두산이1.addEventListener("input", () => {
+            if (백두산이1.value == "백두산이")
+                백두산이2.innerHTML = "ok"
+            else
+                백두산이2.innerHTML = "x"
+        })
+        마르고1.addEventListener("keydown", (e) => {
+            if (e.key == "Enter") {
+                if (마르고1.value == "마르고")
+                    마르고2.innerHTML = "ok"
+                else
+                    마르고2.innerHTML = "x"
+            }
+        })
+        닳도록1.addEventListener("keydown", (e) => {
+            if (e.key == "Enter") {
+                if (닳도록1.value == "닳도록")
+                    닳도록2.innerHTML = "ok"
+                else
+                    닳도록2.innerHTML = "x"
+            }
+        })
+    </script>
+
+</body>
+
+</html>
