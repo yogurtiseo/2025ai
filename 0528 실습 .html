@@ -1,0 +1,169 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13회차 grid 실습1</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        #guide {
+            text-align: center;
+        }
+
+        #wrap {
+            width: 940px;
+            height: 940px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: 300px 300px 300px;
+            grid-template-rows: 300px 300px 300px;
+            gap: 20px;
+        }
+
+        .box {
+            background-color: rgb(0, 0, 0);
+            position: relative;
+        }
+
+        .box h1 {
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18pt;
+            color: white;
+            text-shadow: 2px 2px 1px #000;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .box:hover {
+            background-color: rgba(255, 255, 255, 0.768);
+        }
+
+        .img {
+            width: 300px;
+            height: 300px;
+            opacity: 70%;
+            background-size: 100% 100%;
+            cursor: pointer;
+            background-repeat: no-repeat;
+        }
+
+        .box1 {
+            background-image: url("https://i.namu.wiki/i/QTOLNBAJE5kRCdeJ_ZzlIRY4jvfCW4Nm8GrSe4U4WWCS_KiCFR6TLTei_qfe6ykTWFlCgXOrvRROv11IxJSHBA.webp");
+        }
+
+        .box2 {
+            background-image: url("https://i.namu.wiki/i/_Lku3UqgzKMzttejiC7bp2WUTKdjMauLNlNP979A68YyUJeVJUug3S7Z9HZmdbUafRhKQLcmr-6z5oesenhqgw.webp");
+        }
+
+        .box3 {
+            background-image: url("https://i.namu.wiki/i/3V9D2TfwEVfVQzowrymXsY1tIryJPhczWvmjbPoCiMbpeA2JuP8Oy7KTiHguEhaNmEhAV-Lmo5ihYNEq_qJgSw.webp");
+        }
+
+        .box4 {
+            background-image: url("https://i.namu.wiki/i/6lpzKuY8nDO28vWv6GWVPJPszDmfWHGItUebz2uQPhxfkW2Ma6PXmu2eCY39FU97zlI-koA0DBG0nUxWsoTzjQ.webp");
+        }
+
+        .box5 {
+            background-image: url("https://i.namu.wiki/i/3pNJZT4RF7JxkgFfNPIdeDRzRBrwv7IqYgD1j_hx55yC3DS1CT2cxpFRSsljeDxPzcvAGvGljhv6P9P460gyiQ.webp");
+        }
+
+        .box6 {
+            background-image: url("https://i.namu.wiki/i/Qv2lpQt6wpBySjli2E8nSPzCBy4cvZJc-xKcfZzwFLSps8_vKEmHjpFQzYSwMh-dZyBcPKboWtaIEQjy5KkLzA.webp");
+        }
+
+        .box7 {
+            background-image: url("https://i.namu.wiki/i/nUzLgpLsTw4MRoG9e8p26RLU8ne3FkszXzFe9dkhEdweNfDJGbqRk2fCHgr7rCv7p7f8OSjsljO6jay13YLQXA.webp");
+        }
+
+        .box8 {
+            background-image: url("https://i.namu.wiki/i/yAe5L7wRlHrRCeISHKM4gVTkaUkO7ELahFb5WDCMpTn407r_4Ddy_V7dFvg2yBp3u8XBezBSpmg0dnt8BgAF1w.webp");
+        }
+
+        .box9 {
+            background-image: url("https://i.namu.wiki/i/otYy7uV9N_giQA5dYBFm8r7T36y9ZCkza002YwCgu2DPewiqCw35Qx1U9asRG9z87l-ILpcdlFXnz7isS2Gvpw.webp");
+        }
+    </style>
+    <link rel="stylesheet" href="13회차 grid 실습1.css">
+</head>
+
+<body>
+    <div id="guide">
+        <h1>그리드를 이용한 실습</h1>
+        <h3>각각의 박스 : 300px * 300px, 그리드 여백 20px</h3>
+        <h3>글씨에 그림자 넣기</h3>
+        <h3>글씨 위치는 position을 이용해 조절할 수 있음</h3>
+        <h3>박스 전체를 클릭 가능한 영역으로 만들 것 + 박스에 마우스 올리면 밝아짐</h3>
+        <h3>배경이미지는 어둡게 처리. opacity 속성 활용할 것</h3>
+    </div>
+    <hr>
+    <br>
+    <div id="wrap">
+        <div class="box">
+            <div class="img box1"></div>
+            <a href="#">
+                <h1 class="">꿀벌 티모</h1>
+            </a>
+        </div>
+        <div class="box">
+            <div class="img box2"></div>
+            <a href="#">
+                <h1>액체 티모</h1>
+            </a>
+        </div>
+        <div class="box">
+            <div class="img box3"><img src="" alt=""></div>
+            <a href="#">
+                <h1>여우 티모</h1>
+            </a>
+        </div>
+        <div class="box">
+            <div class="img box4"></div>
+            <a href="#">
+                <h1>피리 티모</h1>
+            </a>
+        </div>
+        <div class="box">
+            <div class="img box5"></div>
+            <a href="#">
+                <h1>티모</h1>
+            </a>
+        </div>
+        <div class="box">
+            <div class="img box6"></div>
+            <a href="#">
+                <h1>격수 티모</h1>
+            </a>
+        </div>
+        <div class="box">
+            <div class="img box7"></div>
+            <a href="#">
+                <h1>판다 티모</h1>
+            </a>
+        </div>
+        <div class="box">
+            <div class="img box8"></div>
+            <a href="#">
+                <h1>선물 티모</h1>
+            </a>
+        </div>
+        <div class="box">
+            <div class="img box9"></div>
+            <a href="#">
+                <h1>버섯 티모</h1>
+            </a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
