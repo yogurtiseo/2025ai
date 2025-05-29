@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜스폼 트랜지션</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+            transition: 1s all ease-in-out;
+        }
+
+        .box1:hover {
+            transform: translate(150px, 100px);
+            /* 위치 이동 */
+        }
+
+        .box2:hover {
+            transform: rotate(150deg);
+        }
+
+        .box3:hover {
+            transform: scale(1.5);
+        }
+
+        .box4:hover {
+            transform: skew(20deg, 30deg);
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box box1">박스1</div>
+    <div class="box box2">박스2</div>
+    <div class="box box3">박스3</div>
+    <div class="box box4">박스4</div>
+
+</body>
+
+</html>
