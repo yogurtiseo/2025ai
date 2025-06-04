@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <button>버튼</button>
+    </div>
+
+    <select name="" id="">
+        <option value="value1">옵션1</option>
+        <option value="value2">옵션2</option>
+        <option value="value3">옵션3</option>
+    </select>
+
+    <br>
+
+    <label for=""><input type="checkbox" value="10000">체크</label>
+
+    <script>
+        const 버튼 = document.querySelector("div")
+        버튼.addEventListener("click", function (event) {
+            console.log(event)
+            console.log(event.target) // target : 이벤트가 발생한 대상. button
+            console.log(event.currentTarget) // currentTarget : 이벤트가 발생한 후 최상위 태그
+            console.log("this", this)
+        })
+
+        const 셀렉 = document.querySelector("select")
+        console.log(셀렉.options)
+        console.log(셀렉.options[1])
+        console.log("value: ", 셀렉.options[1].value)
+        console.log("textContent: ", 셀렉.options[1].textContent)
+
+        const 체크박스 = document.querySelector("input")
+        체크박스.checked = true // 체크여부 수정
+        console.log("체크된 여부", 체크박스.checked)
+        console.log("체크박스 value", 체크박스.value)
+
+
+    </script>
+</body>
+
+</html>
