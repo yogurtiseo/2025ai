@@ -1,0 +1,62 @@
+<html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+
+<body>
+    <h1>주문서</h1>
+    <h3>먹고 싶은 메뉴를 선택합니다</h3>
+
+    <label><input type="checkbox" name="menu" value="치킨" id="chicken">치킨 16,000</label>
+    <br>
+    <br>
+    <label><input type="checkbox" name="menu" value="초밥" id="sushi">초밥 20,000</label>
+    <br>
+    <br>
+    <label><input type="checkbox" name="menu" value="순대" id="soon">순대 5,000</label>
+    <hr>
+    <h2 id="cost">가격 : 0</h2>
+
+
+
+    <script>
+        const menu = document.querySelectorAll("input")
+        const cost = document.querySelector("#cost")
+        let price = 0 
+
+        menu.forEach( function(k) {
+            k.addEventListener("change", function() {
+                if(this.checked == true) {
+                    if(this.value == "치킨") {
+                        price = price + 16000
+                    } 
+                    else if (this.value == "초밥") {
+                        price = price + 20000
+                    }
+                    else if (this.value == "순대") {
+                        price = price + 5000
+                    }
+                }
+                else {
+                    if(this.value == "치킨") {
+                        price = price - 16000
+                    } 
+                    else if (this.value == "초밥") {
+                        price = price - 20000
+                    }
+                    else if (this.value == "순대") {
+                        price = price - 5000
+                    }
+                }
+                cost.textContent = "가격 : " + price
+            
+            })
+        })
+        
+
+    </script>
+
+
+</body></html>
