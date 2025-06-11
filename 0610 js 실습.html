@@ -1,20 +1,92 @@
-<!DOCTYPE html>
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>실습</title>
+    <style>
+        input {
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
-
     <h1>입대일은 만 19세가 되는 날을 기준</h1>
+    <p>------------------------가이드: 아래 내용 참고------------------------</p>
+
+    <h2><span class="year1">2006</span>년생 및 그 이전 : 무조건 입대 가능</h2>
+    <h2><span class="year2">2007</span>년생 : <span class="month">6</span>월 이전 출생자는 무조건 입대 가능</h2>
+    <h2><span class="year2">2007</span>년 <span class="month">6</span>월 생 : <span class="day">10</span>일 이전 출생자는 입대 가능
+    </h2>
+
+    <hr />
+
+    <input type="text" class="birth" placeholder="양식: 2007.10.23" /> <button>계산</button>
 
     <script>
+        const 월 = {
+            Jan: 1,
+            Feb: 2,
+            Mar: 3,
+            Apr: 4,
+            May: 5,
+            Jun: 6,
+            Jul: 7,
+            Aug: 8,
+            Sep: 9,
+            Oct: 10,
+            Nov: 11,
+            Dec: 12,
+        };
 
+        let 생년월일 = document.querySelector(".birth");
+        let 버튼 = document.querySelector("button");
+        let 삽입년1 = document.querySelector(".year1");
+        let 삽입년2 = document.querySelectorAll(".year2");
+        let 삽입월 = document.querySelectorAll(".month");
+        let 삽입일 = document.querySelector(".day");
+
+        let 오늘날짜 = Date().split(" ");
+
+        삽입년1.textContent = Number(오늘날짜[3]) - 19;
+        삽입년2.forEach((e) => (e.textContent = Number(오늘날짜[3]) - 18));
+        삽입월.forEach((e) => (e.textContent = 월[오늘날짜[1]]));
+        삽입일.textContent = 오늘날짜[2];
+
+        버튼.addEventListener("click", () => {
+            let 분할 = 생년월일.value.split(".");
+            if (분할.length !== 3) {
+                console.log("입력 형식을 확인하세요. 예) 2001.1.1");
+                return;
+            }
+            let [입력년, 입력월, 입력일] = 분할.map(Number);
+
+            console.log("만 나이 계산:", Number(오늘날짜[3]) - 입력년);
+
+            if (Number(오늘날짜[3]) - 입력년 > 19) {
+                console.log("입대 가능");
+            } else if (Number(오늘날짜[3]) - 입력년 === 19) {
+                if (월[오늘날짜[1]] > 입력월) {
+                    console.log("월이 지났으니 입대 가능");
+                } else if (월[오늘날짜[1]] === 입력월) {
+                    if (Number(오늘날짜[2]) >= 입력일) {
+                        console.log("일이 지났으니 입대 가능");
+                    } else {
+                        console.log("며칠 뒤 입대 가능");
+                    }
+                } else {
+                    console.log("몇 달 뒤 입대 가능");
+                }
+            } else {
+                console.log("어린놈");
+            }
+        });
     </script>
-
 </body>
 
 </html>

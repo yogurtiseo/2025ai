@@ -1,0 +1,105 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            text-align: center;
+        }
+
+        .container>div {
+            font-size: 18pt;
+            width: 150px;
+            height: 100px;
+            background-color: rgb(245, 205, 213);
+        }
+
+        .container p {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>로또 당첨 번호</h1>
+    <br>
+    <h2>1 ~ 45의 숫자 범위 6개 뽑기</h2>
+    <h2>중복된 숫자는 입력되지 않음</h2>
+
+
+    <div class="container">
+        <div>
+            <p>1번</p>
+            <div class="num">21</div>
+        </div>
+        <div>
+            <p>2번</p>
+            <div class="num">1</div>
+        </div>
+        <div>
+            <p>3번</p>
+            <div class="num">19</div>
+        </div>
+        <div>
+            <p>4번</p>
+            <div class="num">32</div>
+        </div>
+        <div>
+            <p>5번</p>
+            <div class="num">13</div>
+        </div>
+        <div>
+            <p>6번</p>
+            <div class="num">14</div>
+        </div>
+    </div>
+
+    <script>
+
+        function Lotto() {
+            const numbers = [];
+            while (numbers.length < 6) {
+                const random = Math.floor(Math.random() * 45) + 1;
+
+                let 중복여부 = false;
+                for (let i = 0; i < numbers.length; i++) {
+                    if (numbers[i] === random) {
+                        중복여부 = true;
+                        break;
+                    }
+                }
+
+                if (중복여부 === false) {
+                    numbers.push(random);
+                }
+            }
+            return numbers;
+        }
+
+        const 생성한번호 = Lotto();
+        let i = 0;
+        const 번호칸 = document.querySelectorAll(".num");
+        for (let e of 번호칸) {
+            e.textContent = 생성한번호[i];
+            i++;
+        }
+
+    </script>
+
+</body>
+
+</html>

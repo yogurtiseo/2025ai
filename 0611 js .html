@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 수업</title>
+</head>
+
+<body>
+
+    <h3 class="기온">기온</h3>
+    <h3 class="체감온도">체감온도</h3>
+    <h3 class="최고기온">최고기온</h3>
+    <h3 class="최저기온">최저기온</h3>
+    <h3 class="습도">습도</h3>
+    <h3 class="풍속">풍속</h3>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        const 기온 = document.querySelector(".기온")
+        const 체감온도 = document.querySelector(".체감온도")
+        const 최고기온 = document.querySelector(".최고기온")
+        const 최저기온 = document.querySelector(".최저기온")
+        const 습도 = document.querySelector(".습도")
+        const 풍속 = document.querySelector(".풍속")
+        // 지정된 ID를 가진 유저에 대한 요청
+        axios.get('https://api.openweathermap.org/data/2.5/weather?q=london&appid=870691a92d12aaf1adc2f0f7c296ba4e')
+            .then((response) => {
+                console.log(response);
+                기온.textContent = (response.data.main.temp - 273.15).toFixed(2)
+                체감온도.textContent = (response.data.main.feels_like - 273.15).toFixed(2)
+                최고기온.textContent = (response.data.main.temp_max - 273.15).toFixed(2)
+                최저기온.textContent = (response.data.main.temp_min - 273.15).toFixed(2) 
+                습도.textContent = response.data.main.humidity
+                풍속.textContent = response.data.wind.speed
+            })
+            .catch(function (error) {
+                // 에러 핸들링
+                console.log(error);
+            })
+            .finally(function () {
+                // 항상 실행되는 영역
+            });
+    </script>
+
+</body>
+
+</html>
