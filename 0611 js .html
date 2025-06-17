@@ -36,6 +36,7 @@
                 최저기온.textContent = (response.data.main.temp_min - 273.15).toFixed(2) 
                 습도.textContent = response.data.main.humidity
                 풍속.textContent = response.data.wind.speed
+
             })
             .catch(function (error) {
                 // 에러 핸들링
