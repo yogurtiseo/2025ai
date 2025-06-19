@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko
+">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            border: 3px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">박스1</div>
+    <div class="box">박스2</div>
+    <div class="box">박스3</div>
+    <div class="box">박스4</div>
+
+    <script>
+        const 박스 = document.querySelector(".box")
+        const 박스들 = document.querySelectorAll(".box")
+
+        console.log(박스)
+        console.log(박스들)
+
+        // forEach : 여러개의 원소에 한번에 코드를 적용할 때 사용하는 것
+        박스들.forEach((박스) => { console.log(박스) })
+        박스들.forEach((박스) => {
+            박스.style.color = "FFF"
+            박스.style.backgroundColor = "blue"
+        })
+    </script>
+
+</body>
+
+</html>
