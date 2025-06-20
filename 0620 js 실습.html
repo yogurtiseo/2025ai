@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <label>시간 설정:
+        <input type="text" id="time" placeholder="몇 초?"> 초
+    </label>
+    <button id="start">시작</button>
+    <button id="stop">중지</button>
+
+    <h1>남은 시간: <span id="countdown">0</span>초</h1>
+
+    <script>
+        let timer;
+
+        const timeInput = document.querySelector("#time");
+        const countdown = document.querySelector("#countdown");
+        const Start = document.querySelector("#start");
+        const Stop = document.querySelector("#stop");
+
+        Start.addEventListener('click', () => {
+            let input = timeInput.value;
+
+            if (input == "") {
+                return;
+            }
+            if (input <= 0) {
+                return;
+            }
+
+            let seconds = Number(input);
+
+            clearInterval(timer);
+            countdown.textContent = seconds;
+
+            timer = setInterval(() => {
+                seconds--;
+                countdown.textContent = seconds;
+                if (seconds <= 0) clearInterval(timer);
+            }, 1000);
+        });
+
+        Stop.addEventListener('click', () => {
+            clearInterval(timer);
+        });
+    </script>
+
+</body>
+
+</html>
