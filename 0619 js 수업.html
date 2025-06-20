@@ -1,0 +1,81 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cart {
+            display: grid;
+            grid-template-columns: 1fr 1fr
+        }
+
+        .item {
+            border-bottom: 1px solid #AAA;
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>티모 스킬 마나</h1>
+    <p>E 스킬은 패시브</p>
+
+    <div class="cart">
+        <div class="item">
+            <h1 class="name">실명 다트(Q)</h1>
+            <img src="https://i.namu.wiki/i/CBRGqblDRwr8VYEgLnnWIffCl_dFCQPScjJvsofBRiwhG42VdJwr1gm6q4q5jhVZORPCO-vhO6GJz7PvtJUp3g.webp"
+                alt="">
+            <p class="Mana" data-Mana="90">Mana: <span>90</span></p>
+            <p class="quantity">양: <input type="number" value="0" class="quantity-input"></p>
+        </div>
+        <div class="item">
+            <h1 class="name">신속한 이동(W)</h1>
+            <img src="https://i.namu.wiki/i/aV_yblw7B410P2w2UvaJz2Wjmf0VntyfHpKUgL2XrUQj0146kpeqvz4CqBZkaNLvakubUgOv1F6y-tMH6aBatg.webp"
+                alt="">
+            <p class="Mana" data-Mana="40">Mana: <span>40</span></p>
+            <p class="quantity">양: <input type="number" value="0" class="quantity-input"></p>
+        </div>
+        <div class="item">
+            <h1 class="name">맹독 다트(E)</h1>
+            <img src="https://i.namu.wiki/i/GCb2YJdmU-T0i97Wq8kETWVQvRE1tI3-L8yEeH0-zKRTkeMoWg8AAyea_3nMzPRUsYKduSSRXgcywiw2Zqz8jQ.webp"
+                alt="">
+            <p class="Mana" data-Mana="40">Mana: <span>40</span></p>
+            <p class="quantity">양: <input type="number" value="0" class="quantity-input"></p>
+        </div>
+        <div class="item">
+            <h1 class="name">유독성 함정(R)</h1>
+            <img src="https://i.namu.wiki/i/sfhd0QG57VNysQ-n-brv5_0ElMxaOcT1yqKikS0vkyO96aWsCg6lZS-oB10to2GePSMDgpGJQOPgyqaC3ofjRQ.webp"
+                alt="">
+            <p class="Mana" data-Mana="35">Mana: <span>35</span></p>
+            <p class="quantity">양: <input type="number" value="0" class="quantity-input"></p>
+        </div>
+    </div>
+
+    <h2>Total: <span id="total">35000</span></h2>
+
+
+
+    <script>
+        calculateTotal();
+        function calculateTotal() {
+            const items = document.querySelectorAll('.item');
+            let total = 0;
+            items.forEach(item => {
+                const Mana = parseInt(item.querySelector('.Mana span').textContent);
+                const quantity = parseInt(item.querySelector('.quantity-input').value);
+                total += Mana * quantity;
+            });
+            document.querySelector('#total').textContent = total;
+        }
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('input', calculateTotal);
+        });
+    </script>
+</body>
+
+</html>
