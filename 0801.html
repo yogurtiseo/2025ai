@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riot API 프로젝트</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 헤더 검색 부분*/
+        header {
+            padding: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search {
+            width: 350px;
+            height: 50px;
+            margin-right: 25px;
+            border-radius: 25px;
+            border: 3px solid rgb(255, 28, 142);
+        }
+
+        .button {
+            width: 100px;
+            height: 50px;
+            border-radius: 15px;
+            background-color: rgb(255, 28, 142);
+            color: #FFF;
+            font-size: 15pt;
+            font-weight: 900;
+            border: none;
+        }
+
+        /*프로필 전적 요약 부분*/
+        .profile {
+            background-color: #EEE;
+            padding: 20px;
+        }
+
+        .name {
+            display: flex;
+            border-bottom: 5px solid #FFF;
+        }
+
+        .name-left {
+            position: relative;
+        }
+
+        .name-left .profile-img {
+            width: 150px;
+        }
+
+        .name-left .profile-level {
+            position: absolute;
+            bottom: -5px;
+            left: 65px;
+            background-color: rgb(255, 28, 142);
+            color: #FFF;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .name-right .tier {
+            width: 100px;
+        }
+
+        /*20개 게임 승률, kda 구분 */
+        .information {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .information .left .death {
+            color: #F00;
+        }
+
+        .information .left .kda {
+            font-size: 20pt;
+            font-weight: 900;
+        }
+
+        .information .center img {
+            width: 50px;
+        }
+
+        /* 20개 각각 게임들 */
+        .games .win {
+            background-color: rgb(211, 224, 244);
+            border-left: 5px solid blue;
+        }
+
+        .games .lose {
+            background-color: rgb(242, 186, 181);
+            border-left: 5px solid blue;
+        }
+
+        .game {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .game-left {
+            text-align: center;
+        }
+
+        .game .center .champion {
+            width: 70px;
+            border-radius: 10px;
+        }
+
+        .game .center .level {
+            background-color: #F00;
+            color: #FFF;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .game .center .rune1 {
+            width: 50px;
+        }
+
+        .game .center .rune2 {
+            width: 50px;
+        }
+
+        .game .center .spell1 {
+            width: 50px;
+        }
+
+        .game .center .spell2 {
+            width: 50px;
+        }
+
+        .game .center .items img {
+            width: 30px;
+        }
+
+        .game .center .multikill {
+            background-color: #F00;
+            color: #FFF;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .game .center2 {
+            text-align: center;
+        }
+
+        .game .center2 .kda {
+            font-size: 17pt;
+            font-weight: 900;
+        }
+
+        .game .center2 .kda .death {
+            font-size: 17pt;
+            font-weight: 900;
+            color: #F00;
+        }
+
+        .game .center2 .rate {
+            color: #999;
+        }
+
+        .game .center2 .cs {
+            color: #999;
+        }
+
+        .game .right {
+            display: flex;
+            font-size: 8pt;
+        }
+
+        .game .right img {
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!--검색바-->
+        <header>
+            <input type="text" class="search">
+            <button class="button">검색</button>
+        </header>
+
+        <!--전적 요약 부분-->
+        <div class="profile">
+            <!--프로필요약-->
+            <div class="name">
+                <div class="name-left">
+                    <img src="https://i1.sndcdn.com/artworks-dU4liUxICgrTtUXH-NRoWug-t500x500.jpg" alt="카리나"
+                        class="profile-img">
+                    <span class="profile-level">300</span>
+                </div>
+                <div class="name-right">
+                    <h1>
+                        카리나 #좋아해요
+                    </h1>
+                    <div>
+                        <img src="https://i.namu.wiki/i/ELjMIbhPY8bTdcaXD3XT0kHiknPMfqvATOl7zPMCESU6H4Nsit3iaKnuYpycdvq46utrS5kxpVTg383gJmWY3Q.webp"
+                            alt="티어" class="tier">
+                        <br>
+                        승률<span class="rate">100%</span> /
+                        <span class="win">100</span>승
+                        <span class="lose">0</span>패
+                    </div>
+                </div>
+            </div>
+            <!--20개 게임 요약한 부분-->
+            <div class="information">
+                <div class="left">
+                    승률 <span class="rate">100</span>% <span class="win">20</span>승 <span class="lose">0</span>패
+                    <br>
+                    <span class="kill">10</span> / <span class="death">4</span> / <span class="assist">10</span>
+                    <br>
+                    <span class="kda">5</span> : 1
+                </div>
+                <div class="center">
+                    <h2>최근챔피언</h2>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSRm7cKO8CQbtshVW_BBHtdvo7tOoPrVDke08IRgckFlB48PIcNZRPt2TrzqEGrMWXheg&usqp=CAU"
+                        alt="" class="cham1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSRm7cKO8CQbtshVW_BBHtdvo7tOoPrVDke08IRgckFlB48PIcNZRPt2TrzqEGrMWXheg&usqp=CAU"
+                        alt="" class="cham2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSRm7cKO8CQbtshVW_BBHtdvo7tOoPrVDke08IRgckFlB48PIcNZRPt2TrzqEGrMWXheg&usqp=CAU"
+                        alt="" class="cham3">
+                </div>
+                <div class="right">
+                    탑<span class="top">4</span>
+                    정글<span class="jungle">4</span>
+                    미들<span class="middle">4</span>
+                    바텀<span class="bottom">4</span>
+                    서폿<span class="supporter">4</span>
+                </div>
+            </div>
+        </div>
+
+        <!--20개 게임들-->
+        <div class="games">
+            <div class="game win">
+                <div class="left">
+                    <p class="queue">솔로랭크</p>
+                    <p class="sp">승리</p>
+                </div>
+                <div class="center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSRm7cKO8CQbtshVW_BBHtdvo7tOoPrVDke08IRgckFlB48PIcNZRPt2TrzqEGrMWXheg&usqp=CAU"
+                        alt="" class="champion">
+                    <span class="level">level 5</span>
+                    <img src="https://i.namu.wiki/i/fdOP9_PkdhjrYTxq1n0vtsQ5n_pgqiAqBJ_VF1omC4sGfQ3el_XlOFos0qCkg1f5kJKJR-ktV0vVkOUPJQiUHg.webp"
+                        alt="" class="rune1">
+                    <img src="https://i.namu.wiki/i/swgqvD5QwO2dsyKwLTfNIDz-O-KCBML20koFNi-SXu1qGtcXL6Ws6lKt_U2-QVzKiBngz-AsOJ4Jk_PC7O-O9A.webp"
+                        alt="" class="rune2">
+                    <img src="https://i.namu.wiki/i/iD1LzUci2cTjKAl9sh76O2zAclqh7g7DN0RbvpWOI8ZoVTRxfUcvnWZBLraAGJH1cs9Qj6BzO5SII6DbGiFe_g.webp"
+                        alt="" class="spell1">
+                    <img src="https://i.namu.wiki/i/42vvuKDOoxwwXbq2vAdHgeQ-VruKy5WruhzOpTfFlZL9cNEp9do7ugvncz5X5KHsuvNkfvmHCVDupOws85wbAQ.webp"
+                        alt="" class="spell2">
+
+                    <span class="multikill">펜타킬</span>
+
+                    <div class="items">
+                        <img src="https://i.namu.wiki/i/o3oG2pFuWpWHdvT9hdFfcY-EJrz_M2INEVTgLBZTzLKJF4lTGp0NE38-eSw97tMjT5rnfqrZQhmVvqmnnM45Ko90QiZpGroQ789jjOIYpr7jCfebWxSnocKkwEjKmFMSfvAKrgNMP_7Izdfkf0ht0g.webp"
+                            class="item1">
+                        <img src="https://i.namu.wiki/i/OK8wo-bl_1UIPEX0t-UKY2-hRkDImo0Sl3unMUo46yZYR5ecKC4wgocYT9FgKDfGz5XmkNydJZZFWxos7D1KTsMaGWxNrG_mDt6S2-SAu7f8W7QgX5CaKZQdXvWkm22TAVg85GMwmH0pyxRHYYIy0A.webp"
+                            class="item2">
+                        <img src="https://i.namu.wiki/i/G_r5TBjrMAgCxv2JVr98LyhRP7ROwBHy1ZHjla2ZfyZTKzJ8P6JtJCZRR2jMdqGR2wImvUGkKRExuCsZTnWKxU-sX40GO8fEMRrpld7H14fa-k53X2LUU85REud5ZUfPoxhzc7vrONDoz7CvcTKN2A.webp"
+                            class="item3">
+                        <img src="https://i.namu.wiki/i/E4Kw1K45oB9-ApOJLum09VaHYrAF4YZcDulUvjT5TCIO2bhn0gyinnwkCssjEVOgrepxdKY8mOY4Jdjlh9bJTU0rgQTEvAhtbiiLNsii4DdUuVTUQucPcaPLSHOzupEOh2xt5Iwg_x8HyaHIuWdQeQ.webp"
+                            class="item4">
+                        <img src="https://i.namu.wiki/i/gonqZ6yexf4s3yMVgZQsWvzLlHHdLLKhYn78M9qkEMJ82TvHc6bkehhNJqrbjfNti0oTN0XNtoijjnWw8S2QH7VcL873z9RE6AihhfzCQ1rESyoCK2WDDJ1xdbxgaK-glzm80kNQo88r0JkYRg7yQw.webp"
+                            class="item5">
+                        <img src="https://i.namu.wiki/i/RjGx5U-nvlCOK-0ZPlfRFdTLI9nhHR8zAZR6FyN0uEpQHyHQcASyAQWg_CwgEJ4blO5IfuY1kqnlSyl2NrwgAw.webp"
+                            class="item6">
+                    </div>
+                </div>
+                <div class="center2">
+                    <p class="kda"><span class="kill">25</span> / <span class="death">4</span> / <span
+                            class="assist">3</span></p>
+                    <p class="rate">평점<span>7.0</span></p>
+                    <p class="cs"><span class="cs">200</span> CS</p>
+                </div>
+                <div class="right">
+                    <div class="team1">
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임1</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임2</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임3</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임4</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임5</span>
+                        </p>
+                    </div>
+                    <div class="team2">
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임1</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임2</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임3</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임4</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="game lose">
+                <div class="left">
+                    <p class="queue">솔로랭크</p>
+                    <p class="sp">패배</p>
+                </div>
+                <div class="center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSRm7cKO8CQbtshVW_BBHtdvo7tOoPrVDke08IRgckFlB48PIcNZRPt2TrzqEGrMWXheg&usqp=CAU"
+                        alt="" class="champion">
+                    <span class="level">level 5</span>
+                    <img src="https://i.namu.wiki/i/fdOP9_PkdhjrYTxq1n0vtsQ5n_pgqiAqBJ_VF1omC4sGfQ3el_XlOFos0qCkg1f5kJKJR-ktV0vVkOUPJQiUHg.webp"
+                        alt="" class="rune1">
+                    <img src="https://i.namu.wiki/i/swgqvD5QwO2dsyKwLTfNIDz-O-KCBML20koFNi-SXu1qGtcXL6Ws6lKt_U2-QVzKiBngz-AsOJ4Jk_PC7O-O9A.webp"
+                        alt="" class="rune2">
+                    <img src="https://i.namu.wiki/i/iD1LzUci2cTjKAl9sh76O2zAclqh7g7DN0RbvpWOI8ZoVTRxfUcvnWZBLraAGJH1cs9Qj6BzO5SII6DbGiFe_g.webp"
+                        alt="" class="spell1">
+                    <img src="https://i.namu.wiki/i/42vvuKDOoxwwXbq2vAdHgeQ-VruKy5WruhzOpTfFlZL9cNEp9do7ugvncz5X5KHsuvNkfvmHCVDupOws85wbAQ.webp"
+                        alt="" class="spell2">
+
+                    <span class="multikill">펜타킬</span>
+
+                    <div class="items">
+                        <img src="https://i.namu.wiki/i/o3oG2pFuWpWHdvT9hdFfcY-EJrz_M2INEVTgLBZTzLKJF4lTGp0NE38-eSw97tMjT5rnfqrZQhmVvqmnnM45Ko90QiZpGroQ789jjOIYpr7jCfebWxSnocKkwEjKmFMSfvAKrgNMP_7Izdfkf0ht0g.webp"
+                            class="item1">
+                        <img src="https://i.namu.wiki/i/OK8wo-bl_1UIPEX0t-UKY2-hRkDImo0Sl3unMUo46yZYR5ecKC4wgocYT9FgKDfGz5XmkNydJZZFWxos7D1KTsMaGWxNrG_mDt6S2-SAu7f8W7QgX5CaKZQdXvWkm22TAVg85GMwmH0pyxRHYYIy0A.webp"
+                            class="item2">
+                        <img src="https://i.namu.wiki/i/G_r5TBjrMAgCxv2JVr98LyhRP7ROwBHy1ZHjla2ZfyZTKzJ8P6JtJCZRR2jMdqGR2wImvUGkKRExuCsZTnWKxU-sX40GO8fEMRrpld7H14fa-k53X2LUU85REud5ZUfPoxhzc7vrONDoz7CvcTKN2A.webp"
+                            class="item3">
+                        <img src="https://i.namu.wiki/i/E4Kw1K45oB9-ApOJLum09VaHYrAF4YZcDulUvjT5TCIO2bhn0gyinnwkCssjEVOgrepxdKY8mOY4Jdjlh9bJTU0rgQTEvAhtbiiLNsii4DdUuVTUQucPcaPLSHOzupEOh2xt5Iwg_x8HyaHIuWdQeQ.webp"
+                            class="item4">
+                        <img src="https://i.namu.wiki/i/gonqZ6yexf4s3yMVgZQsWvzLlHHdLLKhYn78M9qkEMJ82TvHc6bkehhNJqrbjfNti0oTN0XNtoijjnWw8S2QH7VcL873z9RE6AihhfzCQ1rESyoCK2WDDJ1xdbxgaK-glzm80kNQo88r0JkYRg7yQw.webp"
+                            class="item5">
+                        <img src="https://i.namu.wiki/i/RjGx5U-nvlCOK-0ZPlfRFdTLI9nhHR8zAZR6FyN0uEpQHyHQcASyAQWg_CwgEJ4blO5IfuY1kqnlSyl2NrwgAw.webp"
+                            class="item6">
+                    </div>
+                </div>
+                <div class="center2">
+                    <p class="kda"><span class="kill">25</span> / <span class="death">4</span> / <span
+                            class="assist">3</span></p>
+                    <p class="rate">평점<span>7.0</span></p>
+                    <p class="cs"><span class="cs">200</span> CS</p>
+                </div>
+                <div class="right">
+                    <div class="team1">
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임1</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임2</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임3</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임4</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임5</span>
+                        </p>
+                    </div>
+                    <div class="team2">
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임1</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임2</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임3</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임4</span>
+                        </p>
+                        <p><img
+                                src="https://i.namu.wiki/i/gspIg8QAl81GyetErmDxafUTx_2j3A9Zn2yrHnpc5lAUJzbI7ubmt-84MkaDYDBg3hlQ6g9M3r4M7uWKqrppvA.webp"><span>닉네임5</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
