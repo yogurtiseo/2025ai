@@ -1,0 +1,473 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIOT API 프로젝트</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 헤더 검색 부분 */
+        header {
+            padding: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search {
+            width: 350px;
+            height: 50px;
+            border-radius: 25px;
+            border: 3px solid rgb(255, 28, 142);
+            margin-right: 20px;
+        }
+
+        .button {
+            width: 80px;
+            height: 50px;
+            border-radius: 15px;
+            background-color: rgb(255, 28, 142);
+            color: #FFF;
+            font-size: 15pt;
+            font-weight: 900;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* 프로필 전적 요약 부분 */
+        .profile {
+            background-color: #EEE;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .name {
+            display: flex;
+            border-bottom: 5px solid #FFF;
+        }
+
+        .name-left {
+            position: relative;
+        }
+
+        .name-left .profile-img {
+            width: 150px;
+        }
+
+        .name-left .profile-level {
+            position: absolute;
+            bottom: -5px;
+            left: 65px;
+            background-color: rgb(255, 28, 142);
+            color: #FFF;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .name-right .tier {
+            width: 100px;
+        }
+
+        /* 20개 게임 승률, kda 부분 */
+        .information {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .information .left .death {
+            color: #F00;
+        }
+
+        .information .left .kda {
+            font-size: 20pt;
+            font-weight: 900;
+        }
+
+        .information .center img {
+            width: 50px;
+        }
+
+        /* 20개 각각 게임들 */
+        .games .win {
+            background-color: rgb(236, 251, 255);
+            border-left: 5px solid blue;
+        }
+
+        .games .lose {
+            background-color: rgb(255, 236, 236);
+            border-left: 5px solid red;
+        }
+
+        .game {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .game .left {
+            text-align: center;
+        }
+
+        .game .center .champion {
+            width: 70px;
+            border-radius: 10px;
+        }
+
+        .game .center .level {
+            background-color: #F00;
+            color: #FFF;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .game .center .rune1 {
+            width: 40px;
+        }
+
+        .game .center .rune2 {
+            width: 40px;
+        }
+
+        .game .center .spell1 {
+            width: 40px;
+        }
+
+        .game .center .spell2 {
+            width: 40px;
+        }
+
+        .game .center .multikill {
+            background-color: #F00;
+            color: #FFF;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .game .center .items img {
+            width: 30px;
+        }
+
+        .game .center2 {
+            text-align: center;
+        }
+
+        .game .center2 .kda {
+            font-size: 15pt;
+            font-weight: 900;
+        }
+
+        .game .center2 .kda .death {
+            color: #F00;
+        }
+
+        .game .center2 .rate {
+            color: #888;
+        }
+
+        .game .center2 .cs {
+            color: #888;
+        }
+
+        .game .right {
+            display: flex;
+            font-size: 8pt;
+        }
+
+        .game .right img {
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- 검색바 -->
+        <header>
+            <input type="text" class="search" value="왕사마귀 #사마귀">
+            <button class="button">검색</button>
+        </header>
+
+        <!-- 전적 요약 부분 -->
+        <div class="profile">
+            <!-- 프로필 요약 -->
+            <div class="name">
+                <div class="name-left">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIbXq9pQf1mKjGYQiHUZvKd1vLqRPJnhuWow&amp;s"
+                        alt="이쁜 티모" class="profile-img">
+                    <span class="profile-level">300</span>
+                </div>
+                <div class="name-right">
+                    <h1>대전소녀 #s01</h1>
+                    <div>
+                        <img src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/4415894930323"
+                            alt="티어" class="tier">
+                        <br>
+                        승률 <span class="rate">100%</span> /
+                        <span class="win">100</span>승
+                        <span class="lose">0</span>패
+                    </div>
+                </div>
+            </div>
+            <!-- 20개 게임 요약한 부분 -->
+            <div class="information">
+                <div class="left">
+                    승률 <span class="rate">100</span>% <span class="win">20</span>승 <span class="lose">0</span>패
+                    <br>
+                    <span class="kill">10</span> / <span class="death">4</span> / <span class="assist">10</span>
+                    <br>
+                    <span class="kda">5 : 1</span>
+                </div>
+                <div class="center">
+                    <h2>최근 챔피언</h2>
+                    <p>렉사이</p>
+                </div>
+                <div class="right">
+                    탑<span class="top">4</span>
+                    정글<span class="jungle">4</span>
+                    미드<span class="mid">4</span>
+                    바텀<span class="bottom">4</span>
+                    서폿<span class="supporter">4</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 20개 게임들 -->
+        <div class="games">
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const API_KEY = "RGAPI-07fa6eed-06b6-4108-89dd-17aae485df0e"
+        let puuid
+
+        const 검색창 = document.querySelector(".search")
+
+        // 검색버튼 누르면 실행 시작
+        const 검색버튼 = document.querySelector(".button")
+        검색버튼.addEventListener("click", async function () {
+            // 1. ACCOUNT-V1에서 puuid 불러오기 / input에 입력한 내가 원하는 유저의 puuid
+            let id = 검색창.value.split("#")[0]
+            let tag = 검색창.value.split("#")[1]
+            await axios.get(`https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${id}/${tag}?api_key=${API_KEY}`)
+                .then(function (response) {
+                    puuid = response.data.puuid
+                    console.log(response);
+                    console.log(puuid);
+                    const 이름지정 = document.querySelector(".name-right h1")
+                    이름지정.textContent = response.data.gameName + "#" + response.data.tagLine
+                })
+                .catch(function (error) { console.log("에러남") })
+
+            // 2. SUMMONER-V4에서 소환사 정보 불러오기 (레벨, 프사)
+            await axios.get(`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY}`)
+                .then(function (response) {
+                    console.log(response);
+                    let 소환사레벨 = response.data.summonerLevel
+                    let 프사번호 = response.data.profileIconId
+                    console.log(소환사레벨)
+                    console.log(프사번호)
+                    const 레벨지정 = document.querySelector(".profile-level")
+                    레벨지정.textContent = 소환사레벨
+                    const 프사지정 = document.querySelector(".profile-img")
+                    프사지정.setAttribute("src", `https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon${프사번호}.jpg`)
+
+                })
+                .catch(function (error) { console.log("에러남") })
+
+            // 3. LEAGUE-V4에서 랭겜 정보 불러오기(랭크, 승, 패)
+            await axios.get(`https://kr.api.riotgames.com/lol/league/v4/entries/by-puuid/${puuid}?api_key=${API_KEY}`)
+                .then(function (response) {
+                    console.log(response);
+                    // 티어 이미지 변경
+                    const 랭크이미지 = document.querySelector(".tier")
+                    랭크이미지.src = `https://opgg-static.akamaized.net/images/medals_new/${response.data[0].tier.toLowerCase()}.png`
+                    // 승률, 승, 패 계산
+                    const 승 = document.querySelector(".win")
+                    const 패 = document.querySelector(".lose")
+                    const 승률 = document.querySelector(".rate")
+                    승.textContent = response.data[0].wins
+                    패.textContent = response.data[0].losses
+                    승률.textContent = (response.data[0].wins / (response.data[0].wins + response.data[0].losses)).toFixed(2) * 100 + "%"
+                })
+                .catch(function (error) { console.log("에러남") })
+
+            게임20개()
+        })
+
+        let 승리횟수 = 0
+        let 패배횟수 = 0
+        let 킬 = 0
+        let 뎃 = 0
+        let 어시 = 0
+        let 탑 = 0
+        let 정글 = 0
+        let 미드 = 0
+        let 바텀 = 0
+        let 서폿 = 0
+        let 최근챔 = ""
+
+        async function 게임20개() {
+            // 4-1. MATCH-V5에서 게임 20개 정보 불러오기
+            await axios.get(`https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${API_KEY}`)
+                .then(async function (response) {
+                    let 게임들 = response.data
+
+                    // 20개 게임 누적 방지를 위한 부모 초기화
+                    const 부모 = document.querySelector('.games')
+                    부모.innerHTML = ''
+
+                    // 각각의 게임 분석하기
+                    for (let i = 0; i < 20; i = i + 1) {
+                        await 게임분석(게임들[i])
+                    }
+                    const 게임20개승률 = document.querySelector(".information .left .rate")
+                    const 게임20개승리 = document.querySelector(".information .left .win")
+                    const 게임20개패배 = document.querySelector(".information .left .lose")
+                    게임20개승률.textContent = ((승리횟수 / (승리횟수 + 패배횟수)) * 100).toFixed(2)
+                    게임20개승리.textContent = 승리횟수
+                    게임20개패배.textContent = 패배횟수
+                    console.log("승리횟수", 승리횟수)
+                    console.log("패배횟수", 패배횟수)
+
+                    const 게임20개킬 = document.querySelector(".information .left .kill")
+                    const 게임20개뎃 = document.querySelector(".information .left .death")
+                    const 게임20개어시 = document.querySelector(".information .left .assist")
+                    const 게임20개평점 = document.querySelector(".information .left .kda")
+                    게임20개킬.textContent = 킬
+                    게임20개뎃.textContent = 뎃
+                    게임20개어시.textContent = 어시
+                    게임20개평점.textContent = ((킬 + 어시) / 뎃).toFixed(2) + " : 1"
+                    console.log("킬 뎃 어시", 킬, 뎃, 어시)
+
+                    const 게임20개탑 = document.querySelector(".right .top")
+                    const 게임20개정글 = document.querySelector(".right .jungle")
+                    const 게임20개미드 = document.querySelector(".right .mid")
+                    const 게임20개바텀 = document.querySelector(".right .bottom")
+                    const 게임20개서폿 = document.querySelector(".right .supporter")
+                    게임20개탑.textContent = 탑
+                    게임20개정글.textContent = 정글
+                    게임20개미드.textContent = 미드
+                    게임20개바텀.textContent = 바텀
+                    게임20개서폿.textContent = 서폿
+                    console.log("포지션", 탑, 정글, 미드, 바텀, 서폿)
+
+                    const 게임20개챔피언 = document.querySelector(".center p")
+                    게임20개챔피언.textContent = 최근챔
+                    console.log(최근챔)
+
+                })
+                .catch(function (error) { console.log("에러남") })
+        }
+
+        // 4-2 매치 정보 불러오기
+        async function 게임분석(게임id) {
+            console.log(게임id, "분석")
+            await axios.get(`https://asia.api.riotgames.com/lol/match/v5/matches/${게임id}?api_key=${API_KEY}`)
+                .then(function (response) {
+                    console.log(response)
+
+                    let 내번호
+                    for (let i = 0; i < 10; i = i + 1) {
+                        if (response.data.info.participants[i].puuid == puuid) {
+                            내번호 = i
+                            console.log(내번호)
+                        }
+                    }
+
+                    const 부모 = document.querySelector('.games')
+                    let 게임 = document.createElement("div")
+                    게임.classList.add("game")
+
+                    let 승리여부
+                    if (response.data.info.participants[내번호].win) {
+                        게임.classList.add("win") // 이기면 win
+                        승리여부 = "승리"
+                        승리횟수 = 승리횟수 + 1
+                    }
+                    else {
+                        게임.classList.add("lose") // 지면 lose
+                        승리여부 = "패배"
+                        패배횟수 = 패배횟수 + 1
+                    }
+
+                    킬 = 킬 + response.data.info.participants[내번호].kills
+                    뎃 = 뎃 + response.data.info.participants[내번호].deaths
+                    어시 = 어시 + response.data.info.participants[내번호].assists
+
+                    if (response.data.info.participants[내번호].teamPosition == "TOP") { 탑 = 탑 + 1 }
+                    else if (response.data.info.participants[내번호].teamPosition == "JUNGLE") { 정글 = 정글 + 1 }
+                    else if (response.data.info.participants[내번호].teamPosition == "MID") { 미드 = 미드 + 1 }
+                    else if (response.data.info.participants[내번호].teamPosition == "BOTTOM") { 바텀 = 바텀 + 1 }
+                    else if (response.data.info.participants[내번호].teamPosition == "UTILITY") { 서폿 = 서폿 + 1 }
+
+                    최근챔 = 최근챔 + response.data.info.participants[내번호].championName + " "
+
+                    게임.innerHTML = `
+                    <div class="left">
+                        <p class="queue">${response.data.info.gameMode}</p>
+                        <p class="sp">${승리여부}</p>
+                    </div>
+                    <div class="center">
+                        <img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[내번호].championName}.png" alt="챔피언" class="champion">
+                        <span class="level">level ${response.data.info.participants[내번호].champLevel}</span>
+                        <img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/perk/${response.data.info.participants[내번호].perks.styles[0].selections[0].perk}.png" class="rune1">
+                        <img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/perkStyle/${response.data.info.participants[내번호].perks.styles[1].style}.png" class="rune2">
+                        <img src="https://z.fow.lol/spell/${response.data.info.participants[내번호].summoner1Id}.png" class="spell1">
+                        <img src="https://z.fow.lol/spell/${response.data.info.participants[내번호].summoner2Id}.png" class="spell2">
+                        <span class="multikill">${"펜타킬"}</span>
+                        
+                        <div class="items">
+                            <img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/item/${response.data.info.participants[내번호].item0}.png" class="item1">
+                            <img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/item/${response.data.info.participants[내번호].item1}.png" class="item2">
+                            <img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/item/${response.data.info.participants[내번호].item2}.png" class="item3">
+                            <img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/item/${response.data.info.participants[내번호].item3}.png" class="item4">
+                            <img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/item/${response.data.info.participants[내번호].item4}.png" class="item5">
+                            <img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/item/${response.data.info.participants[내번호].item5}.png" class="item6">
+                        </div>
+                    </div>
+                    <div class="center2">
+                        <p class="kda"><span class="kill">${response.data.info.participants[내번호].kills}</span> / <span class="death">${response.data.info.participants[내번호].deaths}</span> / <span class="assist">${response.data.info.participants[내번호].assists}</span></p>
+                        <p class="rate">평점 <span>${((response.data.info.participants[내번호].kills + response.data.info.participants[내번호].assists) / response.data.info.participants[내번호].deaths).toFixed(2)}</span></p>
+                        <p class="cs"><span>${response.data.info.participants[내번호].totalMinionsKilled}</span> cs</p>
+                    </div>
+                    <div class="right">
+                        <div class="team1">
+                            <p><img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[0].championName}.png"><span>${response.data.info.participants[0].riotIdGameName}</span></p>
+                            <p><img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[1].championName}.png"><span>${response.data.info.participants[1].riotIdGameName}</span></p>
+                            <p><img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[2].championName}.png"><span>${response.data.info.participants[2].riotIdGameName}</span></p>
+                            <p><img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[3].championName}.png"><span>${response.data.info.participants[3].riotIdGameName}</span></p>
+                            <p><img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[4].championName}.png"><span>${response.data.info.participants[4].riotIdGameName}</span></p>
+                        </div>
+                        <div class="team2">
+                            <p><img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[5].championName}.png"><span>${response.data.info.participants[5].riotIdGameName}</span></p>
+                            <p><img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[6].championName}.png"><span>${response.data.info.participants[6].riotIdGameName}</span></p>
+                            <p><img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[7].championName}.png"><span>${response.data.info.participants[7].riotIdGameName}</span></p>
+                            <p><img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[8].championName}.png"><span>${response.data.info.participants[8].riotIdGameName}</span></p>
+                            <p><img src="https://opgg-static.akamaized.net/meta/images/lol/15.15.1/champion/${response.data.info.participants[9].championName}.png"><span>${response.data.info.participants[9].riotIdGameName}</span></p>
+                        </div>
+                    </div> `
+                    부모.appendChild(게임)
+                })
+                .catch(function (error) { console.log("에러남") })
+            console.log(게임id, "분석완료")
+        }
+
+    </script>
+
+</body>
+
+</html>
