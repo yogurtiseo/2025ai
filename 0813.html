@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트</title>
+</head>
+
+<body>
+    <h1>데이터셋</h1>
+    <p>태그에 변수와 데이터를 집어넣는 것</p>
+
+    <h2 class="박태준" data-name="박태준" data-school="동대부고" data-nick-name="AI컴퓨터과 마스코트">박태준 태그</h2>
+    <h2 class="심민서" data-name="심민서" data-school="성심여고" data-nick-name="노상방뇨">심민서 태그</h2>
+    <h2 class="최명우" data-name="최명우" data-school="경인고" data-nick-name="tae">최명우 태그</h2>
+
+    <script>
+        const 박태준변수 = document.querySelector(".박태준")
+        console.log("이름", 박태준변수.dataset.name)
+        console.log("학교", 박태준변수.dataset.school)
+        console.log("닉네임", 박태준변수.dataset.nickName)
+
+        const 심민서변수 = document.querySelector(".심민서")
+        console.log("이름", 심민서변수.dataset.name)
+        console.log("학교", 심민서변수.dataset.school)
+        console.log("닉네임", 심민서변수.dataset.nickName)
+
+        const 최명우변수 = document.querySelector(".최명우")
+        console.log("이름", 최명우변수.dataset.name)
+        console.log("학교", 최명우변수.dataset.school)
+        console.log("닉네임", 최명우변수.dataset.nickName)
+
+        // scope. 변수를 사용할 수 있는 범위
+
+
+        let 함수밖변수 = 9551
+
+        function 함수() {
+            let 함수내변수 = 10
+            console.log(함수내변수)
+            console.log(함수밖변수)
+        }
+
+        함수()
+
+    </script>
+</body>
+
+</html>
