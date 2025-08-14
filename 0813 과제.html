@@ -1,0 +1,89 @@
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+    <style>
+        .cart {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr
+        }
+
+        .item {
+            border-bottom: 1px solid #AAA;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cart">
+        <div class="item">
+            <h1 class="name">치킨</h1>
+            <img src="https://i.namu.wiki/i/D6sU0QSqed_BoNmDzffIvqhkPWCWFf8fTiWacrqbGmk7i1Rlaw1HdwhkILJsStyHM8gmxiQ6qP1pgIKrcE34jg.webp"
+                alt="">
+            <p class="price" data-price="21000" data-sale="0.1">Price: <span>25000 - 22000</span></p>
+            <p>할인: 12%</p>
+            <p class="quantity">수량: <input type="number" value="1" class="quantity-input"></p>
+        </div>
+        <div class="item">
+            <h1 class="name">피자</h1>
+            <img src="https://i.namu.wiki/i/umI-heVYVS9miQNqXM13FRUOHHL4l1nzsZgN9XRLFG7nI_7Dyf-Myr6HmiWf9Qd7SAZQz3WYSQHPXXtGAwLTag.webp"
+                alt="">
+            <p class="price" data-price="17000" data-sale="0.2">Price: <span>28000 - 21560</span></p>
+            <p>할인: 23%</p>
+            <p class="quantity">수량: <input type="number" value="1" class="quantity-input"></p>
+        </div>
+        <div class="item">
+            <h1 class="name">떡볶이</h1>
+            <img src="https://semie.cooking/image/contents/recipe/lm/bg/rfifbtxa/127147885dkig.jpg" alt="">
+            <p class="price" data-price="10000" data-sale="0.2">Price: <span>14000 - 9240</span></p>
+            <p>할인: 34%</p>
+            <p class="quantity">수량: <input type="number" value="1" class="quantity-input"></p>
+        </div>
+        <div class="item">
+            <h1 class="name">보쌈</h1>
+            <img src="https://i.namu.wiki/i/jgm2bWyeBCIqOHEu3052S2TK-zyd_pHYeNmsUeUwgk9yuiPGt2C0JPEFgocGwVElJeMkwzPrHIuuNAVbSOzd_g.webp"
+                alt="">
+            <p class="price" data-price="8000" data-sale="0.5">Price: <span>18000 - 9900</span></p>
+            <p>할인: 45%</p>
+            <p class="quantity">수량: <input type="number" value="1" class="quantity-input"></p>
+        </div>
+    </div>
+
+    <h2>Total: <span id="total">1023</span></h2>
+
+
+
+    <script>
+        calculateTotal();
+
+        function calculateTotal() {
+            const items = document.querySelectorAll('.item');
+            let total = 0;
+
+            items.forEach(item => {
+                const price = parseInt(item.querySelector('.price').dataset.price);
+                const sale = parseFloat(item.querySelector('.price').dataset.sale);
+                const quantity = parseInt(item.querySelector('.quantity-input').value);
+
+                console.log(sale)
+                total += (1 - sale) * price * quantity;
+            });
+
+            document.querySelector('#total').textContent = total;
+        }
+
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('input', calculateTotal);
+        });
+    </script>
+</body>
+
+</html>
