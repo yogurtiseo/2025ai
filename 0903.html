@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타자게임 프로젝트</title>
+
+    <style>
+        .wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            background-color: steelblue;
+            width: 100%;
+            text-align: center;
+            color: #FFF;
+            font-size: 25pt;
+        }
+
+        .text {
+            font-size: 40pt;
+        }
+
+        input {
+            width: 500px;
+            height: 50px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        button {
+            width: 300px;
+            height: 50px;
+            background-color: tomato;
+            border: none;
+            border-radius: 10px;
+            font-size: 20pt;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .board {
+            height: 50px;
+            margin: 50px;
+            font-size: 20pt;
+        }
+
+        .board .time {
+            font-size: 35pt;
+        }
+
+        .board .score {
+            font-size: 35pt;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="wrap">
+        <header>
+            <h1>타이핑 마스터</h1>
+        </header>
+
+        <h1 class="text">니황 박태준 좌</h1>
+
+
+        <input type="text" placeholder="입력하세요">
+
+        <div class="board">
+            남은시간: <span class="time">0</span>초 /
+            점수: <span class="score">0</span>점
+        </div>
+
+        <div>
+            남은시간
+            점수
+        </div>
+
+        <button>게임 시작</button>
+
+    </div>
+    <script>
+        const text = ["대태준", "말황박태준", "니코좌", "나피리의주인", "초월자태준", "태준매직", "박태준신", "원딜지배자태준", "미드포식자태준", "탑의파괴자태준", "롤의황태자", "강철주먹태준", "변신술사태준", "불멸의태준좌", "라인전의종결자", "태준이곧메타다", "유일신태준", "태준교교주님", "말파원펀장인태준", "나피리군단장박태준", "니코의신(神)", "태준메타", "솔랭의태양", "탑의심판자", "태준좌의강림", "말황+니코좌=대태준", "KDA제조기태준", "태준,넌챔프냐유니버스냐", "적팀은게임이아니라견학중", "롤의최종보스", "대태준,단군이래최고의라인전", "태준=Riot의진짜CEO", "태준학개론", "적의시야에뜨는순간공포이벤트발생", "게임승리조건:태준아군", "태준,롤의물리법칙파괴자", "유일무이한존재"];
+
+        const 게임시작버튼 = document.querySelector("button")
+        const 남은시간 = document.querySelector(".time")
+
+        let 게임시작여부 = false
+
+        게임시작버튼.addEventListener("click", function () {
+
+            console.log("게임시작버튼 눌렀음")
+
+            남은시간.textContent = 5 // 몇 초 남았는지 셋팅
+
+            if (게임시작여부 == false) {
+                게임시작여부 = true
+                let 카운트
+                카운트 = setInterval(function () {
+                    남은시간.textContent = 남은시간.textContent - 1 // 1초마다 시간 감소
+                    console.log(남은시간.textContent)
+
+                    if (남은시간.textContent == 0) {
+                        clearInterval(카운트)
+                        게임시작여부 = false
+                        console.log("게임 끝남")
+                    }
+
+                }, 1000)
+            }
+
+
+
+
+
+            //     남은시간 = 5초;
+            //   게임시작 -> 1초마다 시간 감소;
+            //    그런데 0초가 되면 시간 감소 안 함. (게임 끝)
+        })
+
+        /*
+                
+        
+                키보드.이벤트() {
+                    if (input의 내용 == 텍스트의 내용 && 남은시간이 0이 아니어야 함) {
+                        점수 1점 증가
+                        텍스트 다른 걸로 변경
+                        시간은 다시 5초로 변경
+                    }
+                }
+        */
+    </script>
+
+</body>
+
+</html>
