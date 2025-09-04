@@ -59,6 +59,9 @@
         }
     </style>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 </head>
 
 <body>
@@ -78,11 +81,6 @@
             점수: <span class="score">0</span>점
         </div>
 
-        <div>
-            남은시간
-            점수
-        </div>
-
         <button>게임 시작</button>
 
     </div>
@@ -91,19 +89,21 @@
 
         const 게임시작버튼 = document.querySelector("button")
         const 남은시간 = document.querySelector(".time")
+        const 점수 = document.querySelector(".score")
+        const 타이핑 = document.querySelector(".text")
 
         let 게임시작여부 = false
 
-        게임시작버튼.addEventListener("click", function () {
+        let 설정시간 = 7
 
+        게임시작버튼.addEventListener("click", function () {
             console.log("게임시작버튼 눌렀음")
 
-            남은시간.textContent = 5 // 몇 초 남았는지 셋팅
+            남은시간.textContent = 설정시간 // 몇 초 남았는지 셋팅
 
             if (게임시작여부 == false) {
                 게임시작여부 = true
-                let 카운트
-                카운트 = setInterval(function () {
+                let 카운트 = setInterval(function () {
                     남은시간.textContent = 남은시간.textContent - 1 // 1초마다 시간 감소
                     console.log(남은시간.textContent)
 
@@ -117,25 +117,37 @@
             }
 
 
+            let index
 
+            const 입력칸 = document.querySelector("input")
+            입력칸.addEventListener("input", function () {
+                if (입력칸.value == 타이핑.textContent && 게임시작여부) {
+                    점수.textContent = Number(점수.textContent) + 1
+                    남은시간.textContent = 설정시간
+                    입력칸.value = ""
 
+                    index = Math.floor(Math.random() * text.length)
+                    타이핑.textContent = text[index]
+                    console.log(index)
 
-            //     남은시간 = 5초;
-            //   게임시작 -> 1초마다 시간 감소;
-            //    그런데 0초가 되면 시간 감소 안 함. (게임 끝)
+                    Toastify({
+                        text: "정답. 1점 증가",
+                        duration: 3000,
+                        destination: "https://github.com/apvarun/toastify-js",
+                        newWindow: true,
+                        close: true,
+                        gravity: "bottom", // `top` or `bottom`
+                        position: "left", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "linear-gradient(to right, #00b09b, #96c93d)",
+                        },
+                        onClick: function () { } // Callback after click
+                    }).showToast();
+                }
+            })
         })
 
-        /*
-                
-        
-                키보드.이벤트() {
-                    if (input의 내용 == 텍스트의 내용 && 남은시간이 0이 아니어야 함) {
-                        점수 1점 증가
-                        텍스트 다른 걸로 변경
-                        시간은 다시 5초로 변경
-                    }
-                }
-        */
     </script>
 
 </body>
