@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹디 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333333;
+        }
+
+        body {
+            width: 100%;
+        }
+
+        .wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .header {
+            width: 1200px;
+            height: 100px;
+            background-color: turquoise;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo1 {
+            width: 200px;
+            height: 100px;
+            background-color: springgreen;
+        }
+
+        .menu {
+            display: flex;
+            height: 50px;
+            line-height: 50px;
+            margin-right: 50px;
+            position: relative;
+        }
+
+        .menu li {
+            width: 150px;
+            text-align: center;
+            background-color: steelblue;
+        }
+
+        .bg-right {
+            width: 50px;
+            height: 150px;
+            background-color: violet;
+            position: absolute;
+            top: 50px;
+            right: -50px;
+        }
+
+        .bg-left {
+            width: 550px;
+            height: 150px;
+            background-color: steelblue;
+            position: absolute;
+            top: 50px;
+            left: -550px;
+        }
+
+        .li > ul {display: none;}
+        .menu:hover ul {display: block;}
+
+        .slide_container {
+            width: 1200px;
+            height: 300px;
+            background-color: yellowgreen;
+        }
+
+        .contents {
+            width: 1200px;
+            height: 200px;
+            display: flex;
+        }
+
+        .contents>div {
+            width: 400px;
+            height: 200px;
+        }
+
+        .con1 {
+            background-color: coral;
+        }
+
+        .con2 {
+            background-color: skyblue;
+        }
+
+        .con3 {
+            background-color: cornflowerblue;
+        }
+
+        .footer {
+            width: 1200px;
+            height: 100px;
+            display: flex;
+        }
+
+        .logo2 {
+            width: 200px;
+            height: 100px;
+            background-color: darkturquoise;
+        }
+
+        .copy {
+            width: 800px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .family {
+            width: 200px;
+            height: 100px;
+            background-color: deepskyblue;
+        }
+
+        li:hover {
+            cursor: pointer;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="logo1"></div>
+            <ul class="menu">
+
+                <li class="li"><a href="#">재단소개</a>
+                    <ul>
+                        <div class="bg-left"></div>
+                        <li><a href="#">설립취지</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">찾아오시는길</a></li>
+                    </ul>
+                </li>
+                <li class="li"><a href="#">후원하기</a>
+                    <ul>
+                        <li><a href="#">국내후원</a></li>
+                        <li><a href="#">국외후원</a></li>
+                        <li><a href="#">맞춤후원</a></li>
+                    </ul>
+                </li>
+                <li class="li"><a href="#">재단소개</a>
+                    <ul>
+                        <li><a href="#">서식자료실</a></li>
+                        <li><a href="#">사진자료실</a></li>
+                        <li><a href="#">후원양식</a></li>
+                    </ul>
+                </li>
+                <li class="li"><a href="#">재단소개</a>
+                    <ul>
+                        <li><a href="#">웹진</a></li>
+                        <li><a href="#">보고서</a></li>
+                        <li><a href="#">나의 후원</a></li>
+                        <div class="bg-right"></div>
+                    </ul>
+                </li>
+
+            </ul>
+        </header>
+
+        <section class="slide_container"></section>
+
+        <section class="contents">
+            <div class="con1">공지사항</div>
+            <div class="con2">갤러리</div>
+            <div class="con3">배너</div>
+        </section>
+
+        <footer class="footer">
+            <div class="logo2"></div>
+            <div class="copy"></div>
+            <div class="family"></div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
