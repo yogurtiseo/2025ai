@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹디</title>
+    <style>
+        * {
+            color: #333333;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+        }
+
+        .logo1 {
+            width: 200px;
+            height: 100px;
+            background-color: tomato;
+        }
+
+        .nav {
+            width: 1000px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+
+        .slide {
+            width: 1200px;
+            height: 300px;
+            background-color: steelblue;
+        }
+
+        .contents {
+            width: 1200px;
+            height: 200px;
+            display: flex;
+        }
+
+        .con1 {
+            width: 400px;
+            height: 200px;
+            background-color: wheat;
+        }
+
+        .con2 {
+            width: 400px;
+            height: 200px;
+            background-color: rgb(240, 205, 140);
+        }
+
+        .con3 {
+            width: 400px;
+            height: 200px;
+            background-color: rgb(237, 187, 95);
+        }
+
+        footer {
+            display: flex;
+        }
+
+        .logo2 {
+            width: 200px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .menu2 {
+            width: 1000px;
+            height: 50px;
+            background-color: rgb(172, 217, 235);
+        }
+
+        .copy {
+            width: 1000px;
+            height: 50px;
+            background-color: chocolate;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: end;
+            margin: 25px;
+        }
+
+        .menu>li {
+            width: 150px;
+            height: 50px;
+            background-color: silver;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .sub>li {
+            background-color: silver;
+        }
+
+        .tab-container {
+            display: flex;
+        }
+
+        .tab-container>div {
+            width: 100px;
+            height: 50px;
+            text-align: center;
+        }
+
+        .tab-con2 {
+            display: none;
+            background-color: hotpink;
+        }
+
+        .tab-con1 {
+            background-color: hotpink;
+        }
+
+        .active {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <header>
+            <div class="logo1">로고</div>
+            <div class="nav">
+                <ul class="menu">
+                    <li><a href="#">개인</a>
+                        <ul class="sub">
+                            <li><a href="#">조회</a></li>
+                            <li><a href="#">이체</a></li>
+                            <li><a href="#">공과금</a></li>
+                            <li><a href="#">예금/신탁</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">기업</a>
+                        <ul class="sub">
+                            <li><a href="#">조회</a></li>
+                            <li><a href="#">이체</a></li>
+                            <li><a href="#">전자결제</a></li>
+                            <li><a href="#">수표/어음</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">금융상품</a>
+                        <ul class="sub">
+                            <li><a href="#">저축상품</a></li>
+                            <li><a href="#">대출상품</a></li>
+                            <li><a href="#">투자상품</a></li>
+                            <li><a href="#">        </a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">카드</a>
+                        <ul class="sub">
+                            <li><a href="#">카드정보</a></li>
+                            <li><a href="#">카드신청</a></li>
+                            <li><a href="#">이용내역조회</a></li>
+                            <li><a href="#">        </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <section class="slide">슬라이드</section>
+
+        <section class="contents">
+            <div class="con1">
+                <div class="tab-container">
+                    <div class="active notice">공지사항</div>
+                    <div class="gallery">갤러리</div>
+                </div>
+                <div>
+                    <div class="tab-con1">
+                        <p>1. 티모사랑</p>
+                        <p>2. 요들사랑</p>
+                        <p>3. 룰루사랑</p>
+                        <p>4. 유미사랑</p>
+                    </div>
+                    <div class="tab-con2">
+                        <img width="100px"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWNveYOAoqvqvMtFCMNBwQs5rOjp_F05tTYQ&s"
+                            alt="">
+                        <img width="100px"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWNveYOAoqvqvMtFCMNBwQs5rOjp_F05tTYQ&s"
+                            alt="">
+                        <img width="100px"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWNveYOAoqvqvMtFCMNBwQs5rOjp_F05tTYQ&s"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="con2">배너</div>
+            <div class="con3">바로가기</div>
+        </section>
+
+        <footer>
+            <div class="logo2">로고2</div>
+            <div>
+                <div class="menu2">하단메뉴</div>
+                <div class="copy">카피</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const 공지사항 = document.querySelector(".notice")
+        const 갤러리 = document.querySelector(".gallery")
+        const 공지사항내용 = document.querySelector(".tab-con1")
+        const 갤러리내용 = document.querySelector(".tab-con2")
+
+        공지사항.addEventListener("click", function () {
+            공지사항.classList.add("active")
+            갤러리.classList.remove("active")
+
+            공지사항내용.style.display = "block"
+            갤러리내용.style.display = "none"
+        })
+
+        갤러리.addEventListener("click", function () {
+            공지사항.classList.remove("active")
+            갤러리.classList.add("active")
+
+            갤러리내용.style.display = "block"
+            공지사항내용.style.display = "none"
+        })
+
+
+    </script>
+
+</body>
+
+</html>
